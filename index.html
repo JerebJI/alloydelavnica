@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Alloy delavnica</title>
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
@@ -16,8 +16,212 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section>
+					<h3>Začetek modeliranja</h3>
+
+					Ko modeliramo sisteme vedno začnemo s tem, da si zamislimo, kaj
+					so objekti in relacije med njimi.
+
+					Primer:
+					...
+				</section>
+				<section>
+					Z sig deklariramo nov tip objekta.
+
+					<pre><code class="alloy" data-trim data-line-numbers>
+						sig Object {}
+					</code></pre>
+
+					Slika kroga z oznako Object.
+				</section>
+				<section>
+					Če jih je več so med seboj disjunktni:
+
+					<pre><code class="alloy" data-trim data-line-numbers>
+						sig Object1 {}
+						sig Object2 {}
+					</code></pre>
+						
+					Slika.
+				</section>
+				<section>
+					Lahko tudi pove, da je nek objekt podtip drugega:
+
+					<pre><code class="alloy" data-trim data-line-numbers>
+						sig Object {}
+						sig A in Object {}
+						sig B in Object {}
+					</code></pre>
+
+					Slika te situacije (niso nujno disjunktni).
+				</section>
+				<section>
+					Povemo lahko tudi želimo disjunktne množice:
+
+					<pre><code class="alloy" data-trim data-line-numbers>
+						sig Object {}
+						sig A extends Object {}
+						sig B extends Object {}
+					</code></pre>
+
+					Slika te situacije.
+
+				</section>
+				<section>
+					Kako je z mešanjem?
+
+					<pre><code class="alloy" data-trim data-line-numbers>
+						sig Object {}
+						sig B in Object {}
+						sig A, C extends Object {}
+					</code></pre>
+
+					Slika z zamikom.
+
+					Predstavljamo si, da najprej ustvarimo extends in na koncu dodamo in,
+					ki gre lahko čez vse množice.
+
+				</section>
+				<section>
+					Lahko zahtevamo, da v množici ni "drugih elementov"
+
+					<pre><code class="alloy" data-trim data-line-numbers>
+						abstract sig Object {}
+						sig A in Object {}
+						sig B in Object {}  
+					</code></pre>
+
+				</section>
+				<section>
+					Lahko tudi zahtevamo določeno število stvari
+
+					<pre><code class="alloy" data-trim data-line-numbers>
+						sig A {}
+						one sig B {}
+						some sig C {}
+						lone sig D {}
+					</code></pre>
+
+					Slika primerne instance.
+
+				</section>
+				<section>
+					Dve nalogi:
+					- Prva ima neko kompleksno sliko in nekaj alloy kode za izbrati
+					- obratno: alloy koda in izbiraš slike
+
+				</section>
+				<section>
+					Definiramo lahko tudi relacije med objekti
+
+					<pre><code class="alloy" data-trim data-line-numbers>
+						sig Object {}
+						sig Folder {
+							parent : one Folder
+						}
+						sig File {
+							parent : one Folder
+						}
+					</code></pre>
+
+					slika
+
+				</section>
+
+				<section data-background-iframe="http://alloy4fun.inesctec.pt/dnZn7eDrPmPhEYRYg" data-background-interactive>
+				</section>
+				
+				<section>
+					Seveda objekti podedujejo stvari
+
+					Ne smeš dati isto ime.
+
+					<pre><code class="alloy" data-trim data-line-numbers>
+						sig X {
+							asfs : Y
+						}
+						sig Y in X {
+							fd : X
+						}
+					</code></pre>
+
+					slika
+
+				</section>
+				<section>
+					alloy4fun
+
+				</section>
+				<section>
+					Morda naloge???
+
+				</section>
+				<section>
+					Relacije
+				</section>
+				<section>
+					V Alloyu je vse relacija.
+					sig C { f : C} -> f je relacija
+					1 -> relacija {(1)}
+					sig A {} -> A je relacija
+
+					Torej operacije z relacijami delujejo "povsod".
+
+					Omejitve so dolžine in none ?? (str. 55)
+
+				</section>
+				<section>
+					Konstante
+					+, &, -, in, =
+					~, ^, *
+
+				</section>
+				<section>
+					Izpostavi: ->, ., [], <:, :>, ++
+
+					Vsak operator:
+					- z besedami
+					- formalna definicija
+					- slika
+					- primer
+
+				</section>
+				<section>
+					Naloge:
+					- par primerov operacij (večih hkrati)
+					- morda kakšen obratno??
+
+					Izberi nek primer in naredi zaporedje slajdov, kjer uporabimo relacije
+					za izraz tega
+
+				</section>
+				<section>
+					## Logika
+
+				</section>
+				<section>
+					Tabela veznikov
+					Tabela kvantifikatorjev in morda branj
+					omeni disj
+					omeni a.x
+					omeni set
+					omeni lone, one...
+					omeni števila, #...
+					omeni set comprehension
+
+					Pojdi čez isti primer kot pri relacijah
+
+				</section>
+				<section>
+					## Zaganjanje
+					run, check
+
+				</section>
+				<section>
+					## Praktičen del
+					Daj naloge iz:
+					https://github.com/haslab/Alloy4Fun/wiki/Examples
+				</section>
 			</div>
 		</div>
 
@@ -26,6 +230,25 @@
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
 		<script>
+			const hljs = RevealHighlight().hljs;
+			hljs.registerLanguage('alloy', function() {
+				return {
+					name: 'alloy',
+					keywords: {
+						keyword: 'sig extends in abstract one some lone',
+						literal: 'true false none',
+						built_in: 'Int seq univ iden'
+					},
+					contains: [
+						hljs.COMMENT('//', '$'),
+						hljs.C_NUMBER_MODE,
+						hljs.QUOTE_STRING_MODE
+					]
+				};
+			});
+		</script>
+		<script src="plugin/math/math.js"></script>
+		<script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
 			// - https://revealjs.com/config/
@@ -33,7 +256,7 @@
 				hash: true,
 
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath ]
 			});
 		</script>
 	</body>
