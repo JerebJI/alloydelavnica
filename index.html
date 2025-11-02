@@ -44,7 +44,7 @@
 					<ul>
 						<li>načrtovanje programskih sistemov</li>
 						<li>razumevanje obstoječih sistemov</li>
-						<li>razjesnitev misli</li>
+						<li>razjasnitev misli</li>
 					</ul>
 				</section>
 
@@ -306,7 +306,7 @@
 				-->
 
 				<section>
-					<h4>Seveda objekti podedujejo stvari</h4>
+					<h4>Objekti podedujejo stvari</h4>
 
 					<!-- TODO: parentOf, ali lažji primer ali pa postopno odpiranje kode -->
 
@@ -332,9 +332,11 @@
 					<p><a href="">Alloy online</a></p>
 				</section>
 				-->
+				
 				<section>
-					<h2>V Alloyu je vse relacija</h2>
+					<h2>Vse je relacija</h2>
 				</section>
+
 				<section>
 					<h4>Vse je množica n-teric</h4>
 					<pre><code class="alloy" data-trim data-line-numbers>
@@ -503,45 +505,7 @@
 					- slika
 					- primer
 				-->
-				<section>
-					<h3>Abstrakcija</h3>
-				</section>
-
-				<section>
-					<h3>Predikat</h3>
-					<pre><code class="alloy" data-trim data-line-numbers>
-						pred ime[a:s, b:t, ...] {
-							...
-						}
-					</code></pre>
-				</section>
 				
-				<section>
-					<h3>Funkcija</h3>
-					<pre><code class="alloy" data-trim data-line-numbers>
-						fun ime[a:s, b:t, ...] : r {
-							...
-						}
-					</code></pre>
-				</section>
-
-				<section>
-					<h3>Lokalna spremenljivka</h3>
-					<pre><code class="alloy" data-trim data-line-numbers>
-						let v1 = e1, v2 = e2, ... | e
-					</code></pre>
-				</section>
-
-				<section>
-					<h3>Modul</h3>
-					<pre><code class="alloy" data-trim>
-						open path/name[A] (as r)
-					</code></pre>
-					<pre><code class="alloy" data-trim>
-						module name[sig]
-					</code></pre>
-				</section>
-
 				<section>
 					<h3>Omejevanje modelov</h3>
 				</section>
@@ -581,6 +545,45 @@
 						check (ime) {dodatni pogoji}
 						   for (max število vseh) 
 						   but (exactly) količina ime,...
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Abstrakcija</h3>
+				</section>
+
+				<section>
+					<h3>Predikat</h3>
+					<pre><code class="alloy" data-trim data-line-numbers>
+						pred ime[a:s, b:t, ...] {
+							...
+						}
+					</code></pre>
+				</section>
+				
+				<section>
+					<h3>Funkcija</h3>
+					<pre><code class="alloy" data-trim data-line-numbers>
+						fun ime[a:s, b:t, ...] : r {
+							...
+						}
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Lokalna spremenljivka</h3>
+					<pre><code class="alloy" data-trim data-line-numbers>
+						let v1 = e1, v2 = e2, ... | e
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Modul</h3>
+					<pre><code class="alloy" data-trim>
+						open path/name[A] (as r)
+					</code></pre>
+					<pre><code class="alloy" data-trim>
+						module name[sig]
 					</code></pre>
 				</section>
 
