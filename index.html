@@ -6,6 +6,8 @@
 
 		<title>Alloy delavnica</title>
 
+		<link rel="shortcut icon" href="media/favicon.ico" type="image/x-icon">
+
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
 		<link rel="stylesheet" href="dist/theme/blood.css">
@@ -18,21 +20,39 @@
 			<div class="slides">
 				<!-- morda dodaj alloy logo na stran -->
 				<section>
-					Kaj je modeliranje programja?
-					Uporaba matematičnih metod za predstavo in analizo računalniških programov.
+					<section>
+						<h3>Alloy Analyzer delavnica</h3>
+						<h4>Janez I. Jereb</h4>
+					</section>
+					<section>
+						<ul>
+							<li><a href="https://www.youtube.com/watch?v=FvNRlE4E9QQ">"Finding bugs without running or even looking at code" by Jay Parlar</a></li>
+							<li><a href="https://practicalalloy.github.io/">Practical Alloy</a></li>
+							<li><a href="https://github.com/haslab/Alloy4Fun/wiki/Examples">Online reševanje naloge</a></li>
+							<li><a href="https://sterling-js.github.io">Alloy online (samo Alloy4)</a></li>
+							<li><a href="https://mitpress.mit.edu/9780262528900/software-abstractions/">Software Abstractions</a></li>
+						</ul>
+					</section>
+				</section>
 
-					Kaj so formalne metode?
-					Uporaba formalnih matematičnih metod pri razumevanju, dokazovanju pravilnosti in razvoju programov.
-					
-					Kaj so "formalne matematične metode"?
-					Program razumemo kot matematični objekt.
+				<section>
+					<h4>Kaj je modeliranje programja?</h4>
+				</section>
+
+				<section>
+					<h4>Zakaj modeliramo programje?</h4>
+					<ul>
+						<li>načrtovanje programskih sistemov</li>
+						<li>razumevanje obstoječih sistemov</li>
+						<li>razjesnitev misli</li>
+					</ul>
 				</section>
 
 				<section>
 					<section>
-						"Veriga" formalnih metod
+						<h3>Veriga formalnih metod</h3>
 
-						morda slika verige obstoja
+						<img src="media/greatchainofbeing.jpg" alt="Velika veriga obstoja ()">
 					</section>
 
 					<section>
@@ -72,9 +92,8 @@
 						<div class="mermaid" style="display: flex; justify-content: center; align-items: center; height: 100%;">
 							flowchart TD
 								AA[Stranka] -->|Requirements engineering| A
-								A[Ideja] -->|Elaborations| C[Formalizacija]
-								C -->|Refinements| D[Višjenivojska koda]
-								D -->|Compiler| E[Strojna koda]
+								A[Specifikacija] -->|Elaborations| C[Formalizacija]
+								C -->|Refinements| E[Koda]
 								E --> AA
 						</div>
 					</section>
@@ -91,25 +110,26 @@
 						Povej kaj je v praksi uporabno.
 					-->
 				</section>
+
 				<section>
 					<h3>Kako modeliramo?</h3><br>
+				</section>
+
+				<section>
+					<h3>neinteraktiven program</h3>
 					<ul>
-						<li>
-							<h4>neinteraktiven program</h4>
-							<ul>
-								<li>začetno in končno stanje</li>
-								<li>ponavadi je lažje formalizirati</li>
-								<li>Alloy ni ravno primeren</li>
-							</ul><br><br>
-						</li>
-						<li>
-							<h4>interaktiven program</h4>
-							<ul>
-								<li>definiraš začetno stanje/okolje</li>
-								<li>definiraš akcije nad sistemom oz. prehode med stanji</li>
-								<li>invariante</li>
-							</ul>
-						</li>
+						<li>začetno in končno stanje</li>
+						<li>ponavadi je lažje formalizirati</li>
+						<li>Alloy ni ravno primeren</li>
+					</ul>
+				</section>
+
+				<section>
+					<h3>Interaktiven program</h3>
+					<ul>
+						<li>definiraš začetno stanje/okolje</li>
+						<li>definiraš akcije nad sistemom oz. prehode med stanji</li>
+						<li>invariante</li>
 					</ul>
 				</section>
 				
@@ -124,6 +144,28 @@
 
 					Ko modeliramo stanje vedno začnemo s tem, da si zamislimo, kaj
 					so objekti in relacije med njimi.
+				</section>
+
+				<section>
+					<h4>Kaj je Alloy Analyzer?</h4>
+					<ul>
+						<li>modelirni jezik</li>
+						<li>iskalnik modelov</li>
+					</ul>
+				</section>
+
+				<section>
+					<h4>Testiranje</h4>
+					<img src="media/brd.png" alt="">
+				</section>
+
+				<section>
+					<h4>Bounded model checking</h4>
+					<img src="media/bbd.png" alt="">
+				</section>
+
+				<section>
+					<video controls src="media/jayclip1.mp4"></video>
 				</section>
 				
 				<section>
@@ -152,7 +194,7 @@
 				</section>
 				
 				<section>
-					<h4>Lahko tudi pove, da je nek objekt podtip drugega</h4>
+					<h4>Opredelitev podmnožic</h4>
 
 					<div style="display: flex; justify-content: center; align-items: center; height: 100%;">
 						<img src="media/oab.drawio.svg">
@@ -166,7 +208,7 @@
 				</section>
 				
 				<section>
-					<h4>Povemo lahko tudi želimo disjunktne množice</h4>
+					<h4>Opredelitev disjunktne podmnožice</h4>
 
 					<div style="display: flex; justify-content: center; align-items: center; height: 100%;">
 						<img src="media/oeab.svg">
@@ -220,9 +262,6 @@
 						
 						lone sig D {} // eden ali noben element D
 					</code></pre>
-
-					Slika primerne instance.
-
 				</section>
 				
 				<section>
@@ -343,16 +382,20 @@
 							<td style="border: none; padding: 0.4em 0.8em;">odštevanje množic</td>
 						</tr>
 						<tr style="border: none;">
+							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-built_in">=</span></td>
+							<td style="border: none; padding: 0.4em 0.8em;">enakost množic</td>
+						</tr>
+					</table>
+				</section>
+				<section>
+					<table style="border-collapse: collapse; border: none;">
+						<tr style="border: none;">
 							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-literal">in</span></td>
 							<td style="border: none; padding: 0.4em 0.8em;">relacija "je podmnožica" (⊆)</td>
 						</tr>
 						<tr style="border: none;">
-							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-built_in">=</span></td>
-							<td style="border: none; padding: 0.4em 0.8em;">enakost množic</td>
-						</tr>
-						<tr style="border: none;">
-							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-built_in">-></span></td>
-							<td style="border: none; padding: 0.4em 0.8em;">produkt relacij</td>
+							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-literal">set</span></td>
+							<td style="border: none; padding: 0.4em 0.8em;">potenčna množica</td>
 						</tr>
 						<tr style="border: none;">
 							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-literal">disj</span></td>
@@ -378,6 +421,40 @@
 				</section>
 				<section>
 					<section>
+						<h2>Produkt relacij <span class="hljs-built_in">-></span></h2>
+
+						Kompozicija relacij poveže dve relaciji.
+					</section>
+					<section>
+						Morda slika s puščicami
+					</section>
+					<section>
+						Primer s tabelami
+						daj primer array.index
+					</section>
+					<section>
+						formalno
+						\[\begin{aligned}E[p . q]i = \{(&amp;p_1,..,p_{n-1}, q_2,..,q_m) |\\ &amp;(p_1,..,p_n) \in E[p]i \land\\ &amp;(q_1,..,q_m) \in E[q]i \land \\ &amp;p_n = q_1\}\end{aligned}\]
+					</section>
+					<section>
+						A -> n B
+						vsak a se slika v n elementov B
+						A -> one B -- funkcija
+					</section>
+					<section>
+						A m -> B
+						v vsak B se slika m elementov A
+						A one -> B -- injektivna relacija
+					</section>
+					<section>
+						A m -> n B
+						velja A m -> B in A -> n B
+						A one -> one B -- injektivna funkcija
+						oz. ker sta A,B (vedno) končna -- bijekcija
+					</section>
+				</section>
+				<section>
+					<section>
 						<h2>Kompozicija relacij <span class="hljs-built_in">.</span></h2>
 
 						Kompozicija relacij poveže dve relaciji.
@@ -398,6 +475,7 @@
 					<h2>Operator <span class="hljs-built_in">[]</span></h2>
 					r.s = r[s]
 					(r.s).t = r.s[t]
+					kaj z x[a,b]
 				</section>
 				<section>
 					<section>
@@ -426,6 +504,87 @@
 					- primer
 				-->
 				<section>
+					<h3>Abstrakcija</h3>
+				</section>
+
+				<section>
+					<h3>Predikat</h3>
+					<pre><code class="alloy" data-trim data-line-numbers>
+						pred ime[a:s, b:t, ...] {
+							...
+						}
+					</code></pre>
+				</section>
+				
+				<section>
+					<h3>Funkcija</h3>
+					<pre><code class="alloy" data-trim data-line-numbers>
+						fun ime[a:s, b:t, ...] : r {
+							...
+						}
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Lokalna spremenljivka</h3>
+					<pre><code class="alloy" data-trim data-line-numbers>
+						let v1 = e1, v2 = e2, ... | e
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Modul</h3>
+					<pre><code class="alloy" data-trim>
+						open path/name[A] (as r)
+					</code></pre>
+					<pre><code class="alloy" data-trim>
+						module name[sig]
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Omejevanje modelov</h3>
+				</section>
+				
+				<section>
+					<h3>Dodajanje pogojev v <span class="hljs-literal">sig</span></h3>
+					<pre><code class="alloy" data-trim data-line-numbers>
+						sig A {
+							...
+						} {
+							(dodani pogoji)
+						}
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Uporaba <span class="hljs-literal">fact</span></h3>
+					<pre><code class="alloy" data-trim data-line-numbers>
+						fact (ime) { ... }
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Iskanje primerov</h3>
+
+					<pre><code class="alloy" data-trim data-line-numbers>
+						run (ime) {dodatni pogoji}
+						  for (max število vseh)
+						  but (exactly) količina ime,...
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Preverjanje lastnosti</h3>
+					
+					<pre><code class="alloy" data-trim data-line-numbers>
+						check (ime) {dodatni pogoji}
+						   for (max število vseh) 
+						   but (exactly) količina ime,...
+					</code></pre>
+				</section>
+
+				<section>
 					Naloge:
 					- par primerov operacij (večih hkrati)
 					- morda kakšen obratno??
@@ -433,9 +592,11 @@
 					Izberi nek primer in naredi zaporedje slajdov, kjer uporabimo relacije
 					za izraz tega
 				</section>
+				
 				<section>
 					<h3>Logika</h3>
 				</section>
+
 				<section>
 					<table style="border-collapse: collapse; border: none;">
 						<tr style="border: none;">
@@ -453,15 +614,20 @@
 							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-literal">or</span></td>
 							<td style="border: none; padding: 0.4em 0.8em;">logična operacija ali</td>
 						</tr>
-						<tr style="border: none;">
-							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-built_in">=&gt;</span></td>
-							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-literal">implies</span></td>
-							<td style="border: none; padding: 0.4em 0.8em;">logična operacija implikacije</td>
-						</tr>
+					</table>
+				</section>
+
+				<section>
+					<table style="border-collapse: collapse; border: none;">
 						<tr style="border: none;">
 							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-built_in">&lt;=&gt;</span></td>
 							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-literal">iff</span></td>
 							<td style="border: none; padding: 0.4em 0.8em;">logična operacija ekvivalence</td>
+						</tr>
+						<tr style="border: none;">
+							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-built_in">=&gt;</span></td>
+							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-literal">implies</span></td>
+							<td style="border: none; padding: 0.4em 0.8em;">logična operacija implikacije</td>
 						</tr>
 						<tr style="border: none;">
 							<td colspan="2" style="border: none; padding: 0.4em 0.8em;">b <span class="hljs-literal">implies</span> c <span class="hljs-literal">else</span> d <br>
@@ -470,6 +636,7 @@
 						</tr>
 					</table>
 				</section>
+
 				<section>
 					<table style="border-collapse: collapse; border: none;">
 						<tr style="border: none;">
@@ -498,32 +665,32 @@
 					<table style="border-collapse: collapse; border: none;">
 						<tr style="border: none;">
 							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-literal">all disj</span> x, y: e | F</td>
-							<td style="border: none; padding: 0.4em 0.8em;">F velja za vse x v e</td>
+							<td style="border: none; padding: 0.4em 0.8em;">F velja za vse različne x, y v e</td>
 						</tr>
 						<tr style="border: none;">
 							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-literal">some</span> x: <span class="hljs-literal">lone</span> e | F</td>
-							<td style="border: none; padding: 0.4em 0.8em;">F velja za vse x v e</td>
+							<td style="border: none; padding: 0.4em 0.8em;">F velja za nek x v e ali pa nobenega</td>
 						</tr>
 						<tr style="border: none;">
 							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-literal">lone</span> x: <span class="hljs-literal">set</span> e | F</td>
-							<td style="border: none; padding: 0.4em 0.8em;">F velja za vse x v e</td>
+							<td style="border: none; padding: 0.4em 0.8em;">F velja za vse podmnožice x v e</td>
 						</tr>
 					</table>
 				</section>
+
 				<section>
-					<h3>Števila</h3><br>
+					<h3>Števila</h3>
+				</section>
+
+				<section>
 					<ul>
 						<li>
-							<h5>Velikost relacije</h5>
-							<span class="hljs-built_in">#</span><br><br>
-						</li>
-						<li>
 							<h5>Operacije</h5>
-							<span class="hljs-built_in">plus</span>, <span class="hljs-built_in">minus</span>, <span class="hljs-built_in">mul</span>, <span class="hljs-built_in">div</span>, <span class="hljs-built_in">rem</span><br><br>
+							<span class="hljs-built_in">#</span>, <span class="hljs-built_in">plus</span>, <span class="hljs-built_in">minus</span>, <span class="hljs-built_in">mul</span>, <span class="hljs-built_in">div</span>, <span class="hljs-built_in">rem</span><br><br>
 						</li>
 						<li>
 							<h5>Relacije</h5>
-							<span class="hljs-built_in">=</span>, <span class="hljs-built_in">&lt;</span>, <span class="hljs-built_in">&gt;</span>, <span class="hljs-built_in">=&lt;</span>, <span class="hljs-built_in">&gt;=</span><br><br>
+							<span class="hljs-built_in">=</span>, <span class="hljs-built_in">&lt;</span>, <span class="hljs-built_in">&gt;</span>, <span class="hljs-built_in">=&lt;</span>, <span class="hljs-built_in">&lt;=</span>, <span class="hljs-built_in">&gt;=</span>, <span class="hljs-built_in">!=</span>, <span class="hljs-built_in">!&lt;</span>, <span class="hljs-built_in">!&gt;</span>, <span class="hljs-built_in">!=&lt;</span>, <span class="hljs-built_in">!&gt;=</span><br><br>
 						</li>
 					</ul>
 				</section>
@@ -537,9 +704,15 @@
 							e.<span class="hljs-literal">sum</span>
 						</li>
 						<li>
+							(1+3) >= 4 <==> (1+3).sum >= 4
+						</li>
+						<li>
 							{x1: e1, x2: e2, ... | F}
 						</li>
 					</ul>
+				</section>
+				<section>
+					isti primer kot pri relacijah
 				</section>
 				<!--
 					Tabela kvantifikatorjev in morda branj
@@ -552,15 +725,27 @@
 
 					Pojdi čez isti primer kot pri relacijah
 				-->
-				<section>
-					## Zaganjanje
-					run, check
 
+				<section>
+					naštej builtin module
 				</section>
+
 				<section>
 					## Praktičen del
 					Daj naloge iz:
 					https://github.com/haslab/Alloy4Fun/wiki/Examples
+				</section>
+
+				<section>
+					<section>
+						<h3>Bonus: semantika Alloya</h3>
+					</section>
+					<section>
+						denotacijska iz knjige
+					</section>
+					<section>
+						denotacijska za SAT
+					</section>
 				</section>
 			</div>
 		</div>
@@ -575,7 +760,7 @@
 				return {
 					name: 'alloy',
 					keywords: {
-						keyword: 'sig extends in abstract one some lone set',
+						keyword: 'let run for but exactly check open module as sig fact pred fun extends in abstract one some lone set',
 						literal: 'true false none',
 						built_in: 'Int seq univ iden + & - = ~ ^ *'
 					},
