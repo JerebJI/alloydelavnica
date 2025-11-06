@@ -22,7 +22,7 @@
 				<section>
 					<section>
 						<h3>Alloy Analyzer delavnica</h3>
-						<h4>Janez I. Jereb</h4>
+						<h4>Janez Ignacij Jereb</h4>
 					</section>
 					<section>
 						<ul>
@@ -34,6 +34,8 @@
 						</ul>
 					</section>
 				</section>
+
+				<!--
 
 				<section>
 					<h4>Kaj je modeliranje programja?</h4>
@@ -48,9 +50,11 @@
 					</ul>
 				</section>
 
+				-->
+
 				<section>
 					<section>
-						<h3>Veriga formalnih metod</h3>
+						<h4>Veriga tvorbe programov</h4>
 
 						<img src="media/greatchainofbeing.jpg" alt="Velika veriga obstoja (Rhetorica Christiana)" width="50%">
 					</section>
@@ -65,12 +69,56 @@
 					<section>
 						<div class="mermaid" style="display: flex; justify-content: center; align-items: center; height: 100%;">
 							flowchart TD
-								A[Ideja] --> B[Formalizacija]
+								A[Ideja] --> B[Specifikacija]
 								B --> C[Koda]
 						</div>
+
+						<blockquote>
+							Writing is nature's way of letting you know how sloppy your thinking is.
+						</blockquote>
+						<p>-  Richard Guindon (Michigan So Far)</p>
+
+						<aside class="notes">
+							<ul>
+								<li>misli nejasne, kontradiktorne -> zapis to popravi</li>
+								<li>specifikacija je lahko le skica</li>
+								<li>prototipiziranje kot specificiranje</li>
+								<li>vendar ima omejitev, da je neinteraktivna</li>
+							</ul>
+						</aside>
 					</section>
 
 					<section>
+						<div class="mermaid" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+							flowchart TD
+								A[Ideja] --> B[Formalizacija]
+								B --> C[Koda]
+						</div>
+						<blockquote>
+							... the purpose of abstracting is not to be vague, but to create a new semantic level in which one can be absolutely precise.
+						</blockquote>
+						<p>- Edsger W. Dijkstra (The Humble Programmer)</p>
+						<aside class="notes">
+							<ul>
+								<li>zato uporabimo natančen, formalen zapis</li>
+								<li>lahko je diagram ali pa testni primeri</li>
+								<li>primeri:
+									<ul>
+										<li>končni avtomati</li>
+										<li>statecharti</li>
+										<li>petri mreže</li>
+										<li>ER digrami</li>
+										<li>BPMN</li>
+										<li>test cases (omeni flashfill, kombiniranje z drugimi metodami)</li>
+										<li>VDM, Z, B, TLA+, Alloy</li>
+									</ul>
+								</li>
+							</ul>
+						</aside>
+					</section>
+
+					<section>
+						<h3>"Alloy model"</h3>
 						<div class="mermaid" style="display: flex; justify-content: center; align-items: center; height: 100%;">
 							flowchart TD
 								A[Ideja] --> B[formalizacija zahtev kode]
@@ -96,6 +144,19 @@
 								C -->|Refinements| E[Koda]
 								E --> AA
 						</div>
+						<aside class="notes">
+							<ul>
+								<li>omeni da to je le majhna slika</li>
+								<li>requirements engineering</li>
+								<li>stvar ni linearna</li>
+								<li>morda začni filozofirati o formalnih metodi in napovej zlato dobo</li>
+							</ul>
+						</aside>
+					</section>
+
+					<section>
+						<a href="https://www.youtube.com/watch?v=-4Yp3j_jk8Q">Leslie Lamport: Thinking Above the Code</a>
+						<a href="https://www.microsoftpressstore.com/store/software-requirements-9780735679665">Software Requirements</a>
 					</section>
 
 					<!-- Verige:
@@ -112,79 +173,154 @@
 				</section>
 
 				<section>
-					<h3>Kako modeliramo?</h3><br>
+					<section>
+						<h4>Kaj pa legacy code?</h4>
+						<blockquote style="font-size: xx-large;">
+							Traditional software engineering is primarily focused on the development and design of new software. However, most programmers work on software that other people have designed and developed.
+						</blockquote>
+						<p style="font-size: large;">- Nelson (A Survey of Reverse Engineering and Program Comprehension)</p>
+						<aside class="notes">
+							<ul>
+								<li>imamo ogromne sisteme z velikokrat slabo dokumentacijo</li>
+								<li>vredno je zapisati svoje razumevanje sistema</li>
+								<li>še posebej pomaga, če imaš interaktiven sistem</li>
+								<li>omeni praktičen primer sistema in posnetek</li>
+							</ul>
+						</aside>
+					</section>
+
+					<section>
+						<video controls src="media/jayclip1.mp4"></video>
+					</section>
 				</section>
 
 				<section>
-					<h3>neinteraktiven program</h3>
+					<h4>Povzetek</h4>
 					<ul>
-						<li>začetno in končno stanje</li>
-						<li>ponavadi je lažje formalizirati</li>
-						<li>Alloy ni ravno primeren</li>
+						<li>razmisli preden pišeš program</li>
+						<li>misli medtem ko bereš program</li>
+						<li>misli s pisanjem</li>
+						<li>veliko členov manjka, vsi imajo svojo teorijo</li>
 					</ul>
 				</section>
 
 				<section>
-					<h3>Interaktiven program</h3>
+					<section>
+						<h4>Kaj je Alloy Analyzer?</h4>
+						<ul>
+							<li>modelirni jezik</li>
+							<li>iskalnik primerov</li>
+						</ul>
+						<aside class="notes">
+							<ul>
+								<li>omejeni primeri</li>
+								<li>iskanje primerov: stanj in izvajanj</li>
+								<li>preverjanje pravilnosti</li>
+								<li>nariši sliki</li>
+							</ul>
+						</aside>
+					</section>
+					<section>
+						<h4>Testiranje</h4>
+						<img src="media/brd.png" alt="">
+					</section>
+					<section>
+						<h4>Bounded model checking</h4>
+						<img src="media/bbd.png" alt="">
+					</section>
+				</section>
+
+				<section>
+					<h4>Kaj opiše Alloy model?</h4>
 					<ul>
-						<li>definiraš začetno stanje/okolje</li>
-						<li>definiraš akcije nad sistemom oz. prehode med stanji</li>
-						<li>invariante</li>
+						<li>začetno stanje</li>
+						<li>prehod med stanji</li>
+						<li>omejitve celotnega izvajanja</li>
 					</ul>
+					<aside class="notes">
+						<ul>
+							<li>kaj je stanje</li>
+							<li>prehodi med stanji so akcije</li>
+							<li>omejitve celotnega izvajanja izrazimo s časovno logiko</li>
+							<li>danes se bomo omejili le na prvi dve točki</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section>
+					<h4>Kako modeliramo v Alloyu?</h4>
+					<ul>
+						<li>opišemo objekte</li>
+						<li>števnosti relacij med njimi</li>
+						<li>z logiko postavimo dodatne omejitve</li>
+					</ul>
+
+					<aside class="notes">
+						<ul>
+							<li>ER diagram</li>
+							<li>primer dodatne omejitve</li>
+						</ul>
+					</aside>
+				</section>
+
+				<section>
+					<h4>Še ena perspektiva modeliranja</h4>
+
+					<div class="mermaid" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+						flowchart TD
+							A[Ideja] --> B[formalizacija zahtev kode]
+							B --> C[formalizacija delovanja kode]
+							C --> D[Koda]
+					</div>
+
+					<aside class="notes">
+						<ul>
+							<li>vse modeliranje v alloyu je pisanje logike</li>
+							<li>če napišeš kaj hočeš, kaj potem preverjaš??</li>
+						</ul>
+					</aside>
 				</section>
 				
 				<section>
 					<h4>Modeliranje stanj</h4>
 
-					<ul>
-						<li>ponavadi imamo v mislih, da stanje predstavlja prirejanje spremenljivk</li>
-						<li>boljši način: imamo stvari in odnose med njimi</li>
-						<li>oz. imamo tabele</li>
-					</ul>
+					<p>imamo stvari in odnose med njimi</p>
 
-					Ko modeliramo stanje vedno začnemo s tem, da si zamislimo, kaj
-					so objekti in relacije med njimi.
-				</section>
-
-				<section>
-					<h4>Kaj je Alloy Analyzer?</h4>
-					<ul>
-						<li>modelirni jezik</li>
-						<li>iskalnik modelov</li>
-					</ul>
-				</section>
-
-				<section>
-					<h4>Testiranje</h4>
-					<img src="media/brd.png" alt="">
-				</section>
-
-				<section>
-					<h4>Bounded model checking</h4>
-					<img src="media/bbd.png" alt="">
-				</section>
-
-				<section>
-					<video controls src="media/jayclip1.mp4"></video>
+					<aside class="notes">
+						<ul>
+							<li>prirejanje spremenljivk, pomnilnik</li>
+							<li>zakaj so relacije dovolj</li>
+							<li>podatkovne baze, tabele</li>
+							<li>zakaj: bolj splošno, abstraktno, drugačen način</li>
+						</ul>
+					</aside>
 				</section>
 				
 				<section>
 					<h4>Z <span class="hljs-keyword">sig</span> deklariramo nov tip objekta.</h4>
 
-					<div style="display: flex; justify-content: center; align-items: center; height: 100%;">
-						<img src="media/object.drawio.svg">
+					<div style="display: flex; justify-content: center; align-items: center;">
+						<img src="media/object.drawio.svg" width="30%">
 					</div>
 
 					<pre><code class="alloy" data-trim data-line-numbers>
 						sig Object {}
 					</code></pre>
+
+					<aside class="notes">
+						<ul>
+							<li>sig - signature, signatura</li>
+							<li>razloži notacijo</li>
+							<li>riši skupaj s "pikami"</li>
+						</ul>
+					</aside>
 				</section>
 				
 				<section>
 					<h4>Če jih je več so med seboj disjunktni</h4>
 
-					<div style="display: flex; justify-content: center; align-items: center; height: 100%;">
-						<img src="media/o1o2.drawio.svg">
+					<div style="display: flex; justify-content: center; align-items: center;">
+						<img src="media/o1o2.drawio.svg" width="40%">
 					</div>
 
 					<pre><code class="alloy" data-trim data-line-numbers>
@@ -196,8 +332,8 @@
 				<section>
 					<h4>Opredelitev podmnožic</h4>
 
-					<div style="display: flex; justify-content: center; align-items: center; height: 100%;">
-						<img src="media/oab.drawio.svg">
+					<div style="display: flex; justify-content: center; align-items: center;">
+						<img src="media/oab.drawio.svg" width="35%">
 					</div>
 
 					<pre><code class="alloy" data-trim data-line-numbers>
@@ -205,13 +341,19 @@
 						sig A in Object {}
 						sig B in Object {}
 					</code></pre>
+
+					<aside class="notes">
+						<ul>
+							<li>poudari "pike" v preseku</li>
+						</ul>
+					</aside>
 				</section>
 				
 				<section>
 					<h4>Opredelitev disjunktne podmnožice</h4>
 
-					<div style="display: flex; justify-content: center; align-items: center; height: 100%;">
-						<img src="media/oeab.svg">
+					<div style="display: flex; justify-content: center; align-items: center;">
+						<img src="media/oeab.svg" width="35%">
 					</div>
 
 					<pre><code class="alloy" data-trim data-line-numbers>
@@ -225,8 +367,8 @@
 					<h4>Kako je z mešanjem?</h4>
 
 					<div class="r-stack">
-						<img class="fragment" src="media/oeab.svg">
-						<img class="fragment" src="media/oabc.drawio.svg">
+						<img class="fragment" src="media/oeab.svg" width="40%">
+						<img class="fragment" src="media/oabc.drawio.svg" width="40%">
 					</div>
 
 					<pre><code class="alloy" data-trim data-line-numbers>
@@ -237,10 +379,10 @@
 				</section>
 				
 				<section>
-					<h4>Lahko zahtevamo, da v množici ni "drugih elementov"</h4>
+					<h5>Izločanje "drugih" elementov</h5>
 
-					<div style="display: flex; justify-content: center; align-items: center; height: 100%;">
-						<img src="media/aoab.drawio.svg">
+					<div style="display: flex; justify-content: center; align-items: center;">
+						<img src="media/aoab.drawio.svg" width="40%">
 					</div>
 
 					<pre><code class="alloy" data-trim data-line-numbers>
@@ -251,7 +393,7 @@
 				</section>
 				
 				<section>
-					Lahko tudi zahtevamo določeno število stvari
+					<h4>Določanje števnosti množic</h4>
 
 					<pre><code class="alloy" data-trim data-line-numbers>
 						sig A {}      // neopredeljeno število A-jev
@@ -273,8 +415,8 @@
 				<section>
 					Definiramo lahko tudi relacije med objekti
 
-					<div style="display: flex; justify-content: center; align-items: center; height: 100%;">
-						<img src="media/alloy2.png"
+					<div style="display: flex; justify-content: center; align-items: center;">
+						<img src="media/alloy2.png" width="50%">
 					</div>
 					<!--
 						some disj _Webpage3,_Webpage2,_Webpage1,_Webpage0 : univ {
@@ -298,7 +440,16 @@
 				</section>
 
 				<!-- Tukaj daj vprašanja: kako omogočiti, da ni linkov nase;  -->
-				<section data-background-iframe="http://alloy4fun.inesctec.pt/dnZn7eDrPmPhEYRYg" data-background-interactive></section> 
+				 <!-- Premajhen primer...
+				<section data-background-iframe="http://alloy4fun.inesctec.pt/dnZn7eDrPmPhEYRYg" data-background-interactive>
+					<aside class="notes">
+						<ul>
+							<li>povej kaj je run</li>
+							<li>pojdi čez nekaj primerov</li>
+						</ul>
+					</aside>
+				</section> 
+				-->
 				<!-- 
 				<section>
 					<p><a href="http://alloy4fun.inesctec.pt/dnZn7eDrPmPhEYRYg">Alloy online</a></p>
@@ -307,26 +458,52 @@
 
 				<section>
 					<h4>Objekti podedujejo stvari</h4>
-
-					<!-- TODO: parentOf, ali lažji primer ali pa postopno odpiranje kode -->
-
 					<pre><code class="alloy" data-trim data-line-numbers>
-						abstract sig FileSystemObject {
-							parent : one Folder
+						sig Person {
+							friend : set Person
 						}
 
-						sig Folder extends FileSystemObject {}
+						sig Child in Person {}
+					</code></pre>
+				</section>
 
-						one sig Root extends Folder {}
-
-						sig Content {}
-
-						sig File extends FileSystemObject {
-							content : one Content
+				<section>
+					<h4>Primer: Datotečni sistem</h4>
+					<pre><code class="alloy" data-trim data-line-numbers>
+						abstract sig FileSystemObject {
+							ofParent : one Folder
 						}
 					</code></pre>
 				</section>
-				<section data-background-iframe="http://alloy4fun.inesctec.pt/iAm6X9w6PGYv4yfwK" data-background-interactive></section> 
+
+				<section>
+					<h4>Primer: Datotečni sistem</h4>
+					<pre><code class="alloy" data-trim data-line-numbers>
+						sig Folder extends FileSystemObject {}
+
+						one sig Root extends Folder {}
+					</code></pre>
+				</section>
+
+				<section>
+					<h4>Primer: Datotečni sistem</h4>
+					<pre><code class="alloy" data-trim data-line-numbers>
+						sig File extends FileSystemObject {
+							hasContent : one Content
+						}
+						
+						sig Content {}
+					</code></pre>
+				</section>
+
+				<section data-background-iframe="http://alloy4fun.inesctec.pt/phAHkfHexxwGbkEGK" data-background-interactive>
+					<aside class="notes">
+						<ul>
+							<li>pojdi čez primere</li>
+							<li>omeni, da moramo dodati omejitve</li>
+						</ul>
+					</aside>
+				</section> 
 				<!-- 
 				<section>
 					<p><a href="">Alloy online</a></p>
@@ -345,10 +522,10 @@
 						}
 					</code></pre>
 
-					<p class="fragment">f je relacija {(C0,C1), (C0,C2), ...}</p>
-					<p class="fragment">1 je relacija {(1)}</p>
-					<p class="fragment">C je relacija {(C0), (C1), ...}</p>
-					<p class="fragment">Torej operacije z relacijami delujejo "povsod"</p>
+					<p>f je relacija {(C0,C1), (C0,C2), ...}</p>
+					<p>1 je relacija {(1)}</p>
+					<p>C je relacija {(C0), (C1), ...}</p>
+					<p>Torej operacije z relacijami delujejo "povsod"</p>
 			
 					<!-- Omejitve so dolžine in none ?? (str. 55) -->
 
@@ -423,73 +600,86 @@
 				</section>
 				<section>
 					<section>
-						<h2>Produkt relacij <span class="hljs-built_in">-></span></h2>
+						<h3>Produkt relacij <span class="hljs-built_in">-></span></h3>
+						<aside class="notes">
+							<ul>
+								<li>Morda slika s puščicami</li>
+								<li>Primer s tabelami</li>
+								<li>daj primer array.index</li>
+							</ul>
+						</aside>
+					</section>
 
-						Kompozicija relacij poveže dve relaciji.
-					</section>
 					<section>
-						Morda slika s puščicami
+						\[\begin{aligned}E[p \text{ -> } q]i = \{(&amp;p_1,..,p_n, q_1,..,q_m) |\\ &amp;(p_1,..,p_n) \in E[p]i\: \land\\ &amp;(q_1,..,q_m) \in E[q]i\}\end{aligned}\]
 					</section>
+					
 					<section>
-						Primer s tabelami
-						daj primer array.index
+						<h4>A -> N B</h4>
+						<p>vsak a se slika v N elementov B</p>
+						<pre><code class="alloy" data-trim data-line-numbers>
+							A -> one B -- funkcija
+						</code></pre>
 					</section>
+					
 					<section>
-						formalno
-						\[\begin{aligned}E[p . q]i = \{(&amp;p_1,..,p_{n-1}, q_2,..,q_m) |\\ &amp;(p_1,..,p_n) \in E[p]i \land\\ &amp;(q_1,..,q_m) \in E[q]i \land \\ &amp;p_n = q_1\}\end{aligned}\]
+						<h4>A M -> B</h4>
+						<p>v vsak B se slika M elementov A</p>
+						<pre><code class="alloy" data-trim data-line-numbers>
+							A lone -> B -- injektivna relacija
+						</code></pre>
 					</section>
+
 					<section>
-						A -> n B
-						vsak a se slika v n elementov B
-						A -> one B -- funkcija
-					</section>
-					<section>
-						A m -> B
-						v vsak B se slika m elementov A
-						A one -> B -- injektivna relacija
-					</section>
-					<section>
-						A m -> n B
-						velja A m -> B in A -> n B
-						A one -> one B -- injektivna funkcija
-						oz. ker sta A,B (vedno) končna -- bijekcija
+						<h4>A M -> N B</h4>
+						<p>velja A M -> B in A -> N B</p>
+						<pre><code class="alloy" data-trim data-line-numbers>
+							A lone -> one B -- injektivna funkcija
+							A one -> one B -- bijekcija
+						</code></pre>
 					</section>
 				</section>
 				<section>
 					<section>
-						<h2>Kompozicija relacij <span class="hljs-built_in">.</span></h2>
+						<h3>Kompozicija relacij <span class="hljs-built_in">.</span></h3>
+						<aside class="notes">
+							<ul>
+								<li>Morda slika s puščicami</li>
+								<li>Primer s tabelami</li>
+								<li>daj primer array.index</li>
+							</ul>
+						</aside>
+					</section>
 
-						Kompozicija relacij poveže dve relaciji.
-					</section>
-					<section>
-						Morda slika s puščicami
-					</section>
-					<section>
-						Primer s tabelami
-						daj primer array.index
-					</section>
 					<section>
 						formalno
-						\[\begin{aligned}E[p . q]i = \{(&amp;p_1,..,p_{n-1}, q_2,..,q_m) |\\ &amp;(p_1,..,p_n) \in E[p]i \land\\ &amp;(q_1,..,q_m) \in E[q]i \land \\ &amp;p_n = q_1\}\end{aligned}\]
+						\[\begin{aligned}E[p\: . q]i = \{(&amp;p_1,..,p_{n-1}, q_2,..,q_m) |\\ &amp;(p_1,..,p_n) \in E[p]i\: \land\\ &amp;(q_1,..,q_m) \in E[q]i\: \land \\ &amp;p_n = q_1\}\end{aligned}\]
 					</section>
 				</section>
+
 				<section>
 					<h2>Operator <span class="hljs-built_in">[]</span></h2>
-					r.s = r[s]
-					(r.s).t = r.s[t]
-					kaj z x[a,b]
+					<ul>
+						<li>r.s = s[r]</li>
+						<li>t.(r.s) = r.s[t]</li>
+					</ul>
+					<aside class="notes">
+						<ul>
+							<li>kaj z x[a,b]</li>
+						</ul>
+					</aside>
 				</section>
 				<section>
 					<section>
-						<h4>Zožitev relacij <span class="hljs-built_in">&lt;:</span>,<span class="hljs-built_in">:&gt;</span></h4>
+						<h4>Zožitev relacij <span class="hljs-built_in">&lt;:</span>, <span class="hljs-built_in">:&gt;</span></h4>
 						
-						Namen je odstraniti kakšne povezave.
-					</section>
-					<section>
-						slika s puščicami
-					</section>
-					<section>
-						slika s tabelami
+						<aside class="notes">
+							<ul>
+								<li>Morda slika s puščicami</li>
+								<li>Primer s tabelami</li>
+								<li>daj primer array.index</li>
+							</ul>
+						</aside>
 					</section>
 					<section>
 						formalna definicija
@@ -505,87 +695,6 @@
 					- slika
 					- primer
 				-->
-				
-				<section>
-					<h3>Omejevanje modelov</h3>
-				</section>
-				
-				<section>
-					<h3>Dodajanje pogojev v <span class="hljs-literal">sig</span></h3>
-					<pre><code class="alloy" data-trim data-line-numbers>
-						sig A {
-							...
-						} {
-							(dodani pogoji)
-						}
-					</code></pre>
-				</section>
-
-				<section>
-					<h3>Uporaba <span class="hljs-literal">fact</span></h3>
-					<pre><code class="alloy" data-trim data-line-numbers>
-						fact (ime) { ... }
-					</code></pre>
-				</section>
-
-				<section>
-					<h3>Iskanje primerov</h3>
-
-					<pre><code class="alloy" data-trim data-line-numbers>
-						run (ime) {dodatni pogoji}
-						  for (max število vseh)
-						  but (exactly) količina ime,...
-					</code></pre>
-				</section>
-
-				<section>
-					<h3>Preverjanje lastnosti</h3>
-
-					<pre><code class="alloy" data-trim data-line-numbers>
-						check (ime) {dodatni pogoji}
-						   for (max število vseh) 
-						   but (exactly) količina ime,...
-					</code></pre>
-				</section>
-
-				<section>
-					<h3>Abstrakcija</h3>
-				</section>
-
-				<section>
-					<h3>Predikat</h3>
-					<pre><code class="alloy" data-trim data-line-numbers>
-						pred ime[a:s, b:t, ...] {
-							...
-						}
-					</code></pre>
-				</section>
-				
-				<section>
-					<h3>Funkcija</h3>
-					<pre><code class="alloy" data-trim data-line-numbers>
-						fun ime[a:s, b:t, ...] : r {
-							...
-						}
-					</code></pre>
-				</section>
-
-				<section>
-					<h3>Lokalna spremenljivka</h3>
-					<pre><code class="alloy" data-trim data-line-numbers>
-						let v1 = e1, v2 = e2, ... | e
-					</code></pre>
-				</section>
-
-				<section>
-					<h3>Modul</h3>
-					<pre><code class="alloy" data-trim>
-						open path/name[A] (as r)
-					</code></pre>
-					<pre><code class="alloy" data-trim>
-						module name[sig]
-					</code></pre>
-				</section>
 
 				<section>
 					Naloge:
@@ -680,6 +789,87 @@
 						</tr>
 					</table>
 				</section>
+				
+				<section>
+					<h3>Omejevanje modelov</h3>
+				</section>
+				
+				<section>
+					<h3>Dodajanje pogojev v <span class="hljs-literal">sig</span></h3>
+					<pre><code class="alloy" data-trim data-line-numbers>
+						sig A {
+							...
+						} {
+							(dodani pogoji)
+						}
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Uporaba <span class="hljs-literal">fact</span></h3>
+					<pre><code class="alloy" data-trim data-line-numbers>
+						fact (ime) { ... }
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Iskanje primerov</h3>
+
+					<pre><code class="alloy" data-trim data-line-numbers>
+						run (ime) {dodatni pogoji}
+						  for (max število vseh)
+						  but (exactly) količina ime,...
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Preverjanje lastnosti</h3>
+
+					<pre><code class="alloy" data-trim data-line-numbers>
+						check (ime) {dodatni pogoji}
+						   for (max število vseh) 
+						   but (exactly) količina ime,...
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Abstrakcija</h3>
+				</section>
+
+				<section>
+					<h3>Predikat</h3>
+					<pre><code class="alloy" data-trim data-line-numbers>
+						pred ime[a:s, b:t, ...] {
+							...
+						}
+					</code></pre>
+				</section>
+				
+				<section>
+					<h3>Funkcija</h3>
+					<pre><code class="alloy" data-trim data-line-numbers>
+						fun ime[a:s, b:t, ...] : r {
+							...
+						}
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Lokalna spremenljivka</h3>
+					<pre><code class="alloy" data-trim data-line-numbers>
+						let v1 = e1, v2 = e2, ... | e
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Modul</h3>
+					<pre><code class="alloy" data-trim>
+						open path/name[A] (as r)
+					</code></pre>
+					<pre><code class="alloy" data-trim>
+						module name[sig]
+					</code></pre>
+				</section>
 
 				<section>
 					<h3>Števila</h3>
@@ -769,6 +959,7 @@
 					},
 					contains: [
 						hljs.COMMENT('//', '$'),
+						hljs.COMMENT('--', '$'),
 						hljs.C_NUMBER_MODE,
 						hljs.QUOTE_STRING_MODE
 					]
