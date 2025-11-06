@@ -297,7 +297,7 @@
 				</section>
 				
 				<section>
-					<h4>Z <span class="hljs-keyword">sig</span> deklariramo nov tip objekta.</h4>
+					<h4>Z <span class="hljs-keyword">sig</span> deklariramo nov tip objekta</h4>
 
 					<div style="display: flex; justify-content: center; align-items: center;">
 						<img src="media/object.drawio.svg" width="30%">
@@ -652,7 +652,6 @@
 					</section>
 
 					<section>
-						formalno
 						\[\begin{aligned}E[p\: . q]i = \{(&amp;p_1,..,p_{n-1}, q_2,..,q_m) |\\ &amp;(p_1,..,p_n) \in E[p]i\: \land\\ &amp;(q_1,..,q_m) \in E[q]i\: \land \\ &amp;p_n = q_1\}\end{aligned}\]
 					</section>
 				</section>
@@ -682,11 +681,16 @@
 						</aside>
 					</section>
 					<section>
-						formalna definicija
+						\[\begin{aligned}E[p\: <: q]i = \{(&amp;q_1,..,q_n) |\\ &amp;q_1 \in E[p]i\: \land\\ &amp;(q_1,..,q_n) \in E[q]i\}\end{aligned}\]
 					</section>
 				</section>
 				<section>
-					<h4>Povozi <span class="hljs-built_in">++</span></h4>
+					<section>
+						<h4>Povozi <span class="hljs-built_in">++</span></h4>
+					</section>
+					<section>
+						p ++ q = p - (domain(q) <: p) + q
+					</section>
 				</section>
 				<!--
 					Vsak operator:
@@ -769,7 +773,7 @@
 						</tr>
 						<tr style="border: none;">
 							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-literal">one</span> x: e | F</td>
-							<td style="border: none; padding: 0.4em 0.8em;">F velja za natano en x v e</td>
+							<td style="border: none; padding: 0.4em 0.8em;">F velja za natanko en x v e</td>
 						</tr>
 					</table>
 				</section>
@@ -837,7 +841,7 @@
 				</section>
 
 				<section>
-					<h3>Predikat</h3>
+					<h3><span class="hljs-literal">Pred</span>ikat</h3>
 					<pre><code class="alloy" data-trim data-line-numbers>
 						pred ime[a:s, b:t, ...] {
 							...
@@ -846,7 +850,7 @@
 				</section>
 				
 				<section>
-					<h3>Funkcija</h3>
+					<h3><span class="hljs-literal">Fun</span>kcija</h3>
 					<pre><code class="alloy" data-trim data-line-numbers>
 						fun ime[a:s, b:t, ...] : r {
 							...
