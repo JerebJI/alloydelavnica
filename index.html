@@ -511,6 +511,30 @@
 				-->
 				
 				<section>
+					<h3>Omejevanje modelov</h3>
+				</section>
+				
+				<section>
+					<h3>Dodajanje pogojev v <span class="hljs-literal">sig</span></h3>
+					<pre><code class="alloy" data-trim data-line-numbers>
+						sig A {
+							...
+						} {
+							(dodani pogoji)
+						}
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Uporaba <span class="hljs-literal">fact</span></h3>
+					<pre><code class="alloy" data-trim data-line-numbers>
+						fact (ime) {
+							...
+						}
+					</code></pre>
+				</section>
+				
+				<section>
 					<h2>Vse je relacija</h2>
 				</section>
 
@@ -606,6 +630,8 @@
 								<li>Morda slika s puščicami</li>
 								<li>Primer s tabelami</li>
 								<li>daj primer array.index</li>
+								<li>ne pozabi števnost</li>
+								<li>ne pozabi, da je števna	-> posebna</li>
 							</ul>
 						</aside>
 					</section>
@@ -687,9 +713,14 @@
 				<section>
 					<section>
 						<h4>Povozi <span class="hljs-built_in">++</span></h4>
+						<aside class="notes">
+							<ul>
+								<li>relacija kot slovar, hashtable</li>
+							</ul>
+						</aside>
 					</section>
 					<section>
-						p ++ q = p - (domain(q) <: p) + q
+						p ++ q = p - (domena(q) <: p) + q
 					</section>
 				</section>
 				<!--
@@ -699,6 +730,12 @@
 					- slika
 					- primer
 				-->
+				<section>
+					<h4>Set comprehension</h4>
+					<pre><code class="alloy" data-trim data-line-numbers>
+						{x1: e1, x2: e2, ... | F}
+					</code></pre>
+				</section>
 
 				<section>
 					Naloge:
@@ -793,28 +830,6 @@
 						</tr>
 					</table>
 				</section>
-				
-				<section>
-					<h3>Omejevanje modelov</h3>
-				</section>
-				
-				<section>
-					<h3>Dodajanje pogojev v <span class="hljs-literal">sig</span></h3>
-					<pre><code class="alloy" data-trim data-line-numbers>
-						sig A {
-							...
-						} {
-							(dodani pogoji)
-						}
-					</code></pre>
-				</section>
-
-				<section>
-					<h3>Uporaba <span class="hljs-literal">fact</span></h3>
-					<pre><code class="alloy" data-trim data-line-numbers>
-						fact (ime) { ... }
-					</code></pre>
-				</section>
 
 				<section>
 					<h3>Iskanje primerov</h3>
@@ -901,10 +916,7 @@
 							e.<span class="hljs-literal">sum</span>
 						</li>
 						<li>
-							(1+3) >= 4 <==> (1+3).sum >= 4
-						</li>
-						<li>
-							{x1: e1, x2: e2, ... | F}
+							1+3 >= 4 se prevede v (1+3).sum >= 4
 						</li>
 					</ul>
 				</section>
@@ -924,18 +936,44 @@
 				-->
 
 				<section>
-					naštej builtin module
+					<section>
+						<h4>Vključeni moduli</h4>
+						<ul>
+							<li>ordering</li>
+							<li>relation</li>
+							<li>...</li>
+						</ul>
+					</section>
+					<section data-background-iframe="https://alloy.readthedocs.io/en/latest/modules/">
+					</section>
 				</section>
 
 				<section>
-					## Praktičen del
-					Daj naloge iz:
-					https://github.com/haslab/Alloy4Fun/wiki/Examples
+					<h4>Naloge</h4>
+					<ul>
+						<li><a href="http://alloy4fun.inesctec.pt/i5u2pjKJt6Bz227QT">Course enrolment management</a></li>
+						<li><a href="http://alloy4fun.inesctec.pt/28fwdmjL79X4SQ9EP">Graph properties</a></li>
+						<li><a href="http://alloy4fun.inesctec.pt/gqS3qTTn4B62NYmJX">Labelled transition system</a></li>
+						<li><a href="http://alloy4fun.inesctec.pt/X72J6js9fA3CKYQWX">CV management platform</a></li>
+						<li><a href="http://alloy4fun.inesctec.pt/PKy7chamCieZyCix5">Automated production line</a></li>
+						<li><a href="http://alloy4fun.inesctec.pt/u6EPDxzJrQSEKRwSf">Photo sharing social network</a></li>
+						<li><a href="http://alloy4fun.inesctec.pt/vBnLJx7x62yWHpWcN">Graphs</a></li>
+						<li><a href="http://alloy4fun.inesctec.pt/n5rgKi6xhjymixNGy">Production line</a></li>
+						<li><a href="http://alloy4fun.inesctec.pt/6ymnREeGQGRZFGcyz">Train station</a></li>
+						<li><a href="http://alloy4fun.inesctec.pt/Z3SaBk4fvFEicsWwc">Courses</a></li>
+						<li><a href="http://alloy4fun.inesctec.pt/WJdLnDL78m7mM7W4J">File system trash can</a></li>
+					</ul>
+					<aside class="notes">
+						<ul>
+							<li>pokaži in reši primer</li>
+							<li>RAZLOŽI PROTIPRIMERE!!!!</li>
+						</ul>
+					</aside>
 				</section>
 
 				<section>
 					<section>
-						<h3>Bonus: semantika Alloya</h3>
+						<h3>Dodatno gradivo</h3>
 					</section>
 					<section>
 						denotacijska iz knjige
