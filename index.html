@@ -14,6 +14,13 @@
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+
+		<style>
+			code {
+				font-size: var(--r-heading3-size) !important;
+				line-height: var(--r-heading3-size) !important;
+			}
+		</style>
 	</head>
 	<body>
 		<div class="reveal">
@@ -21,16 +28,15 @@
 				<!-- morda dodaj alloy logo na stran -->
 				<section>
 					<section>
+						<img src="media/qrcode.svg" alt="">
 						<h3>Alloy Analyzer delavnica</h3>
 						<h4>Janez Ignacij Jereb</h4>
 					</section>
 					<section>
 						<ul>
-							<li><a href="https://www.youtube.com/watch?v=FvNRlE4E9QQ">"Finding bugs without running or even looking at code" by Jay Parlar</a></li>
 							<li><a href="https://practicalalloy.github.io/">Practical Alloy</a></li>
-							<li><a href="https://github.com/haslab/Alloy4Fun/wiki/Examples">Online reševanje naloge</a></li>
+							<li><a href="#/naloge">Online reševanje nalog</a></li>
 							<li><a href="https://sterling-js.github.io">Alloy online (samo Alloy4)</a></li>
-							<li><a href="https://mitpress.mit.edu/9780262528900/software-abstractions/">Software Abstractions</a></li>
 						</ul>
 					</section>
 				</section>
@@ -117,24 +123,28 @@
 						</aside>
 					</section>
 
+					<!--
+
 					<section>
 						<h3>"Alloy model"</h3>
 						<div class="mermaid" style="display: flex; justify-content: center; align-items: center; height: 100%;">
 							flowchart TD
-								A[Ideja] --> B[formalizacija zahtev kode]
-								B --> C[formalizacija delovanja kode]
-								C --> D[Koda]
+								A[Ideja] -- > B[formalizacija zahtev kode]
+								B -- > C[formalizacija delovanja kode]
+								C -- > D[Koda]
 						</div>
 					</section>
 
 					<section>
 						<div class="mermaid" style="display: flex; justify-content: center; align-items: center; height: 100%;">
 							flowchart TD
-								A[Ideja] -->|Elaborations| B[formalizacija zahtev kode]
-								B --> C[formalizacija delovanja kode]
-								C -->|Refinements| D[Koda]
+								A[Ideja] -- >|Elaborations| B[formalizacija zahtev kode]
+								B -- > C[formalizacija delovanja kode]
+								C -- >|Refinements| D[Koda]
 						</div>
 					</section>
+
+					-->
 
 					<section>
 						<div class="mermaid" style="display: flex; justify-content: center; align-items: center; height: 100%;">
@@ -323,7 +333,7 @@
 						<img src="media/o1o2.drawio.svg" width="40%">
 					</div>
 
-					<pre><code class="alloy" data-trim data-line-numbers>
+					<pre><code class="alloy" data-trim data-line-numbers style="font-size: larger;">
 						sig Object1 {}
 						sig Object2 {}
 					</code></pre>
@@ -468,6 +478,54 @@
 				</section>
 
 				<section>
+					<h3>Primer: Git object model</h3>
+				</section>
+
+				<section>
+					<section>
+						<img src="media/git-object-model.png" alt="">
+					</section>
+					<section>
+						<pre><code class="alloy" data-trim data-line-numbers>
+							sig GitObject {
+								// hash : one Str
+							}
+
+							// sig Str {}
+						</code></pre>
+					</section>
+					<section>
+						<img src="media/git-commit.png" alt="">
+						<pre><code class="alloy" data-trim data-line-numbers>
+							sig Commit extends GitObject {
+								// author, committer, msg : one Str,
+								parent : set Commit,
+								tree : one Tree
+							}
+						</code></pre>
+					</section>
+					<section>
+						<img src="media/git-blob.png" alt="">
+						<pre><code class="alloy" data-trim data-line-numbers>
+							sig blob extends GitObject {
+								// content : one Str
+							}
+						</code></pre>
+					</section>
+					<section>
+						<img src="media/git-tree.png" alt="">
+						<pre><code class="alloy" data-trim data-line-numbers>
+							sig tree in GitObject {
+								entry : set (Blob + Tree)
+							}
+						</code></pre>
+					</section>
+					<section data-background-iframe="http://alloy4fun.inesctec.pt/8mgBmtknDDKi8xZnp"></section>
+				</section>
+
+				<!--
+
+				<section>
 					<h4>Primer: Datotečni sistem</h4>
 					<pre><code class="alloy" data-trim data-line-numbers>
 						abstract sig FileSystemObject {
@@ -503,7 +561,10 @@
 							<li>omeni, da moramo dodati omejitve</li>
 						</ul>
 					</aside>
-				</section> 
+				</section>
+				
+				-->
+
 				<!-- 
 				<section>
 					<p><a href="">Alloy online</a></p>
@@ -546,10 +607,14 @@
 						}
 					</code></pre>
 
-					<p>f je relacija {(C0,C1), (C0,C2), ...}</p>
-					<p>1 je relacija {(1)}</p>
-					<p>C je relacija {(C0), (C1), ...}</p>
-					<p>Torej operacije z relacijami delujejo "povsod"</p>
+					<p><b>f, C, 1 so relacije!</b></p>
+
+					<aside class="notes">
+						<p>f je relacija {(C0,C1), (C0,C2), ...}</p>
+						<p>1 je relacija {(1)}</p>
+						<p>C je relacija {(C0), (C1), ...}</p>
+						<p>Torej operacije z relacijami delujejo "povsod"</p>
+					</aside>
 			
 					<!-- Omejitve so dolžine in none ?? (str. 55) -->
 
@@ -707,7 +772,7 @@
 						</aside>
 					</section>
 					<section>
-						\[\begin{aligned}E[p\: <: q]i = \{(&amp;q_1,..,q_n) |\\ &amp;q_1 \in E[p]i\: \land\\ &amp;(q_1,..,q_n) \in E[q]i\}\end{aligned}\]
+						\[\begin{aligned}E[p <: q]i = \{(&amp;q_1,..,q_n) |\\ &amp;q_1 \in E[p]i\: \land\\ &amp;(q_1,..,q_n) \in E[q]i\}\end{aligned}\]
 					</section>
 				</section>
 				<section>
@@ -784,8 +849,8 @@
 						</tr>
 						<tr style="border: none;">
 							<td colspan="2" style="border: none; padding: 0.4em 0.8em;">b <span class="hljs-literal">implies</span> c <span class="hljs-literal">else</span> d <br>
-							b <span class="hljs-built_in">=&gt;</span> c <span class="hljs-literal">else</span> d</td>
-							<td style="border: none; padding: 0.4em 0.8em;">logični pogojni stavek</td>
+							b <span class="hljs-built_in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;</span> <span style="float:right;">c <span class="hljs-literal">else</span> d</span></td>
+							<td style="border: none; padding: 0.4em 0.8em;vertical-align: middle; ">logični pogojni stavek</td>
 						</tr>
 					</table>
 				</section>
@@ -793,40 +858,40 @@
 				<section>
 					<table style="border-collapse: collapse; border: none;">
 						<tr style="border: none;">
-							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-literal">all</span> x: e | F</td>
-							<td style="border: none; padding: 0.4em 0.8em;">F velja za vse x v e</td>
+							<td style="border: none; padding: 0.4em 0.8em;text-align: right;"><span class="hljs-literal">all</span> x: e | F</td>
+							<td style="border: none; padding: 0.4em 0.8em;">F velja za <b>vse</b> x v e</td>
 						</tr>
 						<tr style="border: none;">
-							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-literal">some</span> x: e | F</td>
-							<td style="border: none; padding: 0.4em 0.8em;">F velja za nek x v e</td>
+							<td style="border: none; padding: 0.4em 0.8em;text-align: right;"><span class="hljs-literal">some</span> x: e | F</td>
+							<td style="border: none; padding: 0.4em 0.8em;">F velja za <b>nek</b> x v e</td>
 						</tr>
 						<tr style="border: none;">
-							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-literal">no</span> x: e | F</td>
-							<td style="border: none; padding: 0.4em 0.8em;">F velja za vse x v e</td>
+							<td style="border: none; padding: 0.4em 0.8em;text-align: right;"><span class="hljs-literal">no</span> x: e | F</td>
+							<td style="border: none; padding: 0.4em 0.8em;">F velja za <b>noben</b> x v e</td>
 						</tr>
 						<tr style="border: none;">
-							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-literal">lone</span> x: e | F</td>
-							<td style="border: none; padding: 0.4em 0.8em;">F velja za največ en x v e</td>
+							<td style="border: none; padding: 0.4em 0.8em;text-align: right;"><span class="hljs-literal">lone</span> x: e | F</td>
+							<td style="border: none; padding: 0.4em 0.8em;">F velja za <b>največ en</b> x v e</td>
 						</tr>
 						<tr style="border: none;">
-							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-literal">one</span> x: e | F</td>
-							<td style="border: none; padding: 0.4em 0.8em;">F velja za natanko en x v e</td>
+							<td style="border: none; padding: 0.4em 0.8em;text-align: right;"><span class="hljs-literal">one</span> x: e | F</td>
+							<td style="border: none; padding: 0.4em 0.8em;">F velja za <b>natanko en</b> x v e</td>
 						</tr>
 					</table>
 				</section>
 				<section>
 					<table style="border-collapse: collapse; border: none;">
 						<tr style="border: none;">
-							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-literal">all disj</span> x, y: e | F</td>
+							<td style="border: none; padding: 0.4em 0.8em;text-align: right;"><span class="hljs-literal">all disj</span> x, y: e | F</td>
 							<td style="border: none; padding: 0.4em 0.8em;">F velja za vse različne x, y v e</td>
 						</tr>
 						<tr style="border: none;">
-							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-literal">some</span> x: <span class="hljs-literal">lone</span> e | F</td>
+							<td style="border: none; padding: 0.4em 0.8em;white-space: nowrap;text-align: right;vertical-align: middle;"><span class="hljs-literal">some</span> x: <span class="hljs-literal">lone</span> e | F</td>
 							<td style="border: none; padding: 0.4em 0.8em;">F velja za nek x v e ali pa nobenega</td>
 						</tr>
 						<tr style="border: none;">
-							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-literal">lone</span> x: <span class="hljs-literal">set</span> e | F</td>
-							<td style="border: none; padding: 0.4em 0.8em;">F velja za vse podmnožice x v e</td>
+							<td style="border: none; padding: 0.4em 0.8em;text-align: right;"><span class="hljs-literal">lone</span> x: <span class="hljs-literal">set</span> e | F</td>
+							<td style="border: none; padding: 0.4em 0.8em;white-space: nowrap;">F velja za vse podmnožice x v e</td>
 						</tr>
 					</table>
 				</section>
@@ -856,6 +921,13 @@
 				</section>
 
 				<section>
+					<h3>Lokalna spremenljivka</h3>
+					<pre><code class="alloy" data-trim data-line-numbers>
+						let v1 = e1, v2 = e2, ... | e
+					</code></pre>
+				</section>
+
+				<section>
 					<h3><span class="hljs-literal">Pred</span>ikat</h3>
 					<pre><code class="alloy" data-trim data-line-numbers>
 						pred ime[a:s, b:t, ...] {
@@ -874,13 +946,6 @@
 				</section>
 
 				<section>
-					<h3>Lokalna spremenljivka</h3>
-					<pre><code class="alloy" data-trim data-line-numbers>
-						let v1 = e1, v2 = e2, ... | e
-					</code></pre>
-				</section>
-
-				<section>
 					<h3>Modul</h3>
 					<pre><code class="alloy" data-trim>
 						open path/name[A] (as r)
@@ -888,6 +953,19 @@
 					<pre><code class="alloy" data-trim>
 						module name[sig]
 					</code></pre>
+				</section>
+
+				<section>
+					<section>
+						<h4>Vključeni moduli</h4>
+						<ul>
+							<li>ordering</li>
+							<li>relation</li>
+							<li>...</li>
+						</ul>
+					</section>
+					<section data-background-iframe="https://alloy.readthedocs.io/en/latest/modules/">
+					</section>
 				</section>
 
 				<section>
@@ -935,20 +1013,7 @@
 					Pojdi čez isti primer kot pri relacijah
 				-->
 
-				<section>
-					<section>
-						<h4>Vključeni moduli</h4>
-						<ul>
-							<li>ordering</li>
-							<li>relation</li>
-							<li>...</li>
-						</ul>
-					</section>
-					<section data-background-iframe="https://alloy.readthedocs.io/en/latest/modules/">
-					</section>
-				</section>
-
-				<section>
+				<section id="naloge">
 					<h4>Naloge</h4>
 					<ul>
 						<li><a href="http://alloy4fun.inesctec.pt/i5u2pjKJt6Bz227QT">Course enrolment management</a></li>
@@ -976,9 +1041,11 @@
 						<h3>Dodatno gradivo</h3>
 					</section>
 					<section>
+						<ul>
+							<li><a href="https://www.youtube.com/watch?v=FvNRlE4E9QQ">"Finding bugs without running or even looking at code" by Jay Parlar</a></li>
+							<li><a href="https://mitpress.mit.edu/9780262528900/software-abstractions/">Software Abstractions</a></li>
+						</ul>
 						denotacijska iz knjige
-					</section>
-					<section>
 						denotacijska za SAT
 					</section>
 				</section>
