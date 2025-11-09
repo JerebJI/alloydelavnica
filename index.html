@@ -28,9 +28,9 @@
 				<!-- morda dodaj alloy logo na stran -->
 				<section>
 					<section>
-						<img src="media/qrcode.svg" alt="">
 						<h3>Alloy Analyzer delavnica</h3>
-						<h4>Janez Ignacij Jereb</h4>
+						<p class="hljs-literal" style="font-size: var(--r-heading4-size); font-weight: bold; text-transform: uppercase;">Janez Ignacij Jereb</p>
+						<img src="media/qrcode(3).svg" alt="">
 					</section>
 					<section>
 						<ul>
@@ -60,23 +60,24 @@
 
 				<section>
 					<section>
-						<h4>Veriga tvorbe programov</h4>
-
-						<img src="media/greatchainofbeing.jpg" alt="Velika veriga obstoja (Rhetorica Christiana)" width="50%">
+						<h4 style="margin-bottom: 0px !important;">Veriga tvorbe programov</h4>
+						<img src="media/greatchainofbeing.jpg" alt="Velika veriga obstoja (Rhetorica Christiana)" width="43%">
 					</section>
 
 					<section>
 						<div class="mermaid" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+							%%{init: {'theme':'dark'}}%%
 							flowchart TD
-								A[Ideja] --> B[Koda]
+								A[IDEJA] --> B[KODA]
 						</div>
 					</section>
 
 					<section>
 						<div class="mermaid" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+							%%{init: {'theme':'dark'}}%%
 							flowchart TD
-								A[Ideja] --> B[Specifikacija]
-								B --> C[Koda]
+								A[IDEJA] --> B[SPECIFIKACIJA]
+								B --> C[KODA]
 						</div>
 
 						<blockquote>
@@ -86,19 +87,20 @@
 
 						<aside class="notes">
 							<ul>
-								<li>misli nejasne, kontradiktorne -> zapis to popravi</li>
-								<li>specifikacija je lahko le skica</li>
-								<li>prototipiziranje kot specificiranje</li>
-								<li>vendar ima omejitev, da je neinteraktivna</li>
+								<li>Misli nejasne, kontradiktorne -> zapis to popravi</li>
+								<li>Specifikacija je lahko le skica</li>
+								<li>Prototipiziranje kot specificiranje</li>
+								<li>Vendar ima omejitev, da je neinteraktivna</li>
 							</ul>
 						</aside>
 					</section>
 
 					<section>
 						<div class="mermaid" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+							%%{init: {'theme':'dark'}}%%
 							flowchart TD
-								A[Ideja] --> B[Formalizacija]
-								B --> C[Koda]
+								A[IDEJA] --> B[FORMALIZACIJA]
+								B --> C[KODA]
 						</div>
 						<blockquote>
 							... the purpose of abstracting is not to be vague, but to create a new semantic level in which one can be absolutely precise.
@@ -129,18 +131,18 @@
 						<h3>"Alloy model"</h3>
 						<div class="mermaid" style="display: flex; justify-content: center; align-items: center; height: 100%;">
 							flowchart TD
-								A[Ideja] -- > B[formalizacija zahtev kode]
+								A[IDEJA] -- > B[formalizacija zahtev kode]
 								B -- > C[formalizacija delovanja kode]
-								C -- > D[Koda]
+								C -- > D[KODA]
 						</div>
 					</section>
 
 					<section>
 						<div class="mermaid" style="display: flex; justify-content: center; align-items: center; height: 100%;">
 							flowchart TD
-								A[Ideja] -- >|Elaborations| B[formalizacija zahtev kode]
+								A[IDEJA] -- >|ELABORATIONS| B[formalizacija zahtev kode]
 								B -- > C[formalizacija delovanja kode]
-								C -- >|Refinements| D[Koda]
+								C -- >|REFINEMENTS| D[KODA]
 						</div>
 					</section>
 
@@ -148,10 +150,11 @@
 
 					<section>
 						<div class="mermaid" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+							%%{init: {'theme':'dark'}}%%
 							flowchart TD
 								AA[Stranka] -->|Requirements engineering| A
-								A[Specifikacija] -->|Elaborations| C[Formalizacija]
-								C -->|Refinements| E[Koda]
+								A[SPECIFIKACIJA] -->|ELABORATIONS| C[FORMALIZACIJA]
+								C -->|REFINEMENTS| E[KODA]
 								E --> AA
 						</div>
 						<aside class="notes">
@@ -165,8 +168,11 @@
 					</section>
 
 					<section>
-						<a href="https://www.youtube.com/watch?v=-4Yp3j_jk8Q">Leslie Lamport: Thinking Above the Code</a>
-						<a href="https://www.microsoftpressstore.com/store/software-requirements-9780735679665">Software Requirements</a>
+						<ul>
+							<li><a href="https://www.youtube.com/watch?v=-4Yp3j_jk8Q">Leslie Lamport: Thinking Above the Code</a></li>
+							<li><a href="https://www.microsoftpressstore.com/store/software-requirements-9780735679665">Software Requirements</a></li>
+						</ul>
+						
 					</section>
 
 					<!-- Verige:
@@ -232,17 +238,17 @@
 					</section>
 					<section>
 						<h4>Testiranje</h4>
-						<img src="media/brd.png" alt="">
+						<img src="media/brd.png" alt="" width="50%">
 					</section>
 					<section>
 						<h4>Bounded model checking</h4>
-						<img src="media/bbd.png" alt="">
+						<img src="media/bbd.png" alt="" width="50%">
 					</section>
 				</section>
 
 				<section>
 					<h4>Kaj opiše Alloy model?</h4>
-					<ul>
+					<ul style="padding-left: 50px;">
 						<li>začetno stanje</li>
 						<li>prehod med stanji</li>
 						<li>omejitve celotnega izvajanja</li>
@@ -259,7 +265,7 @@
 
 				<section>
 					<h4>Kako modeliramo v Alloyu?</h4>
-					<ul>
+					<ul style="padding-left: 100px;">
 						<li>opišemo objekte</li>
 						<li>števnosti relacij med njimi</li>
 						<li>z logiko postavimo dodatne omejitve</li>
@@ -277,10 +283,11 @@
 					<h4>Še ena perspektiva modeliranja</h4>
 
 					<div class="mermaid" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+						%%{init: {'theme':'dark'}}%%
 						flowchart TD
-							A[Ideja] --> B[formalizacija zahtev kode]
-							B --> C[formalizacija delovanja kode]
-							C --> D[Koda]
+							A[IDEJA] --> B[FORMALIZACIJA ZAHTEV KODE]
+							B --> C[FORMALIZACIJA DELOVANJA KODE]
+							C --> D[KODA]
 					</div>
 
 					<aside class="notes">
@@ -377,8 +384,8 @@
 					<h4>Kako je z mešanjem?</h4>
 
 					<div class="r-stack">
-						<img class="fragment" src="media/oeab.svg" width="40%">
-						<img class="fragment" src="media/oabc.drawio.svg" width="40%">
+						<!-- <img class="fragment" src="media/oeab.svg" width="40%"> -->
+						<img src="media/oabc.drawio.svg" width="40%">
 					</div>
 
 					<pre><code class="alloy" data-trim data-line-numbers>
@@ -405,7 +412,7 @@
 				<section>
 					<h4>Določanje števnosti množic</h4>
 
-					<pre><code class="alloy" data-trim data-line-numbers>
+					<pre><code class="alloy" data-trim data-line-numbers style="width:110%;">
 						sig A {}      // neopredeljeno število A-jev
 						
 						one sig B {}  // natanko en element B
@@ -417,17 +424,70 @@
 				</section>
 				
 				<section>
-					Dve nalogi:
-					- Prva ima neko kompleksno sliko in nekaj alloy kode za izbrati
-					- obratno: alloy koda in izbiraš slike
+					<section>
+						<h1>KVIZ!</h1>
+					</section>
+					<section>
+						<div><countdown style="font-size: larger;font-weight: bold; float:right; padding: 0px 10px 0px 10px; border-radius: 10px; border: 2px solid white;" time="30" autostart="no"/></div>
+						<img src="media/kviz1.svg" alt="">
+						<table style="border-collapse: collapse; border: none;" class="center">
+							<tr style="border: none;">
+								<td style="border: none;">
+									<pre><code class="alloy" data-trim data-line-numbers style="width: 110%;">
+										sig C in A {}
+										abstract sig D in O {}
+										sig A, B extends O {}
+										abstract sig O {}
+									</code></pre>
+								</td>
+								<td style="border: none;">
+									<pre><code class="alloy" data-trim data-line-numbers style="width: 110%;">
+										sig C in A {}
+										sig B extends O {}
+										abstract sig O {}
+										sig A extends O {}
+									</code></pre>
+								</td>
+							</tr>
+						</table>
+					</section>
+					<section>
+						<div><countdown style="font-size: larger;font-weight: bold; float:right; padding: 0px 10px 0px 10px; border-radius: 10px; border: 2px solid white;" time="30" autostart="no"/></div>
+						<img src="media/kviz2.svg" alt="">
+						<table style="border-collapse: collapse; border: none;" class="center">
+							<tr style="border: none;">
+								<td style="border: none;">
+									<pre><code class="alloy" data-trim data-line-numbers style="width: 110%;">
+										sig B in A {}
+										sig C, D extends E {}
+										abstract sig E in A {}
+										abstract sig A {}
+									</code></pre>
+								</td>
+								<td style="border: none;">
+									<pre><code class="alloy" data-trim data-line-numbers style="width: 110%;">
+										sig E in A {}
+										abstract sig A {}
+										abstract sig B in A {}
+										sig C, D extends E {}
+									</code></pre>
+								</td>
+							</tr>
+						</table>
+						<!--
+						Dve nalogi:
+						- Prva ima neko kompleksno sliko in nekaj alloy kode za izbrati
+						- obratno: alloy koda in izbiraš slike
+						-->
+					</section>
 				</section>
 
 				<section>
-					Definiramo lahko tudi relacije med objekti
+					<h4>Relacije med objekti</h4>
 
-					<div style="display: flex; justify-content: center; align-items: center;">
+					<!-- <div style="display: flex; justify-content: center; align-items: center;">
 						<img src="media/alloy2.png" width="50%">
-					</div>
+					</div> -->
 					<!--
 						some disj _Webpage3,_Webpage2,_Webpage1,_Webpage0 : univ {
 							// configuration
@@ -467,7 +527,7 @@
 				-->
 
 				<section>
-					<h4>Objekti podedujejo stvari</h4>
+					<h4>Objekti podedujejo relacije</h4>
 					<pre><code class="alloy" data-trim data-line-numbers>
 						sig Person {
 							friend : set Person
@@ -483,7 +543,7 @@
 
 				<section>
 					<section>
-						<img src="media/git-object-model.png" alt="">
+						<img src="media/git-object-model.png" alt="" style="border-radius: 5%;">
 					</section>
 					<section>
 						<pre><code class="alloy" data-trim data-line-numbers>
@@ -495,7 +555,7 @@
 						</code></pre>
 					</section>
 					<section>
-						<img src="media/git-commit.png" alt="">
+						<img src="media/git-commit.png" alt="" style="border-radius: 5%;">
 						<pre><code class="alloy" data-trim data-line-numbers>
 							sig Commit extends GitObject {
 								// author, committer, msg : one Str,
@@ -505,7 +565,7 @@
 						</code></pre>
 					</section>
 					<section>
-						<img src="media/git-blob.png" alt="">
+						<img src="media/git-blob.png" alt="" style="border-radius: 5%;">
 						<pre><code class="alloy" data-trim data-line-numbers>
 							sig blob extends GitObject {
 								// content : one Str
@@ -513,7 +573,7 @@
 						</code></pre>
 					</section>
 					<section>
-						<img src="media/git-tree.png" alt="">
+						<img src="media/git-tree.png" alt="" style="border-radius: 5%;">
 						<pre><code class="alloy" data-trim data-line-numbers>
 							sig tree in GitObject {
 								entry : set (Blob + Tree)
@@ -521,6 +581,11 @@
 						</code></pre>
 					</section>
 					<section data-background-iframe="http://alloy4fun.inesctec.pt/8mgBmtknDDKi8xZnp"></section>
+					<section>
+						<ul>
+							<li><a href="https://shafiul.github.io/gitbook/1_the_git_object_model.html">The Git Object Model</a></li>
+						</ul>
+					</section>
 				</section>
 
 				<!--
@@ -689,7 +754,8 @@
 				</section>
 				<section>
 					<section>
-						<h3>Produkt relacij <span class="hljs-built_in">-></span></h3>
+						<h3>Produkt relacij</h3>
+						<h2><span class="hljs-built_in">-></span></h2>
 						<aside class="notes">
 							<ul>
 								<li>Morda slika s puščicami</li>
@@ -702,7 +768,7 @@
 					</section>
 
 					<section>
-						\[\begin{aligned}E[p \text{ -> } q]i = \{(&amp;p_1,..,p_n, q_1,..,q_m) |\\ &amp;(p_1,..,p_n) \in E[p]i\: \land\\ &amp;(q_1,..,q_m) \in E[q]i\}\end{aligned}\]
+						\[\begin{aligned}E[p\:\text{ -> } q]i = \{(&amp;p_1,..,p_n, q_1,..,q_m) |\\ &amp;(p_1,..,p_n) \in E[p]i\: \land\\ &amp;(q_1,..,q_m) \in E[q]i\}\end{aligned}\]
 					</section>
 					
 					<section>
@@ -732,7 +798,8 @@
 				</section>
 				<section>
 					<section>
-						<h3>Kompozicija relacij <span class="hljs-built_in">.</span></h3>
+						<h3>Kompozicija relacij</h3>
+						<h2><span class="hljs-built_in">.</span></h2>
 						<aside class="notes">
 							<ul>
 								<li>Morda slika s puščicami</li>
@@ -748,11 +815,17 @@
 				</section>
 
 				<section>
-					<h2>Operator <span class="hljs-built_in">[]</span></h2>
-					<ul>
-						<li>r.s = s[r]</li>
-						<li>t.(r.s) = r.s[t]</li>
-					</ul>
+					<section>
+						<h3>Operator</h3>
+						<h3><span class="hljs-built_in">[]</span></h3>
+					</section>
+					
+					<section>
+						<ul>
+							<li>r.s = s[r]</li>
+							<li>t.(r.s) = r.s[t]</li>
+						</ul>
+					</section>
 					<aside class="notes">
 						<ul>
 							<li>kaj z x[a,b]</li>
@@ -761,7 +834,8 @@
 				</section>
 				<section>
 					<section>
-						<h4>Zožitev relacij <span class="hljs-built_in">&lt;:</span>, <span class="hljs-built_in">:&gt;</span></h4>
+						<h3>Zožitev relacij</h4>
+						<h2><span class="hljs-built_in">&lt;:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-built_in">:&gt;</span></h2>
 						
 						<aside class="notes">
 							<ul>
@@ -777,7 +851,8 @@
 				</section>
 				<section>
 					<section>
-						<h4>Povozi <span class="hljs-built_in">++</span></h4>
+						<h3>Povozi</h3>
+						<h2><span class="hljs-built_in">++</span></h2>
 						<aside class="notes">
 							<ul>
 								<li>relacija kot slovar, hashtable</li>
@@ -803,34 +878,77 @@
 				</section>
 
 				<section>
-					Naloge:
-					- par primerov operacij (večih hkrati)
-					- morda kakšen obratno??
-
-					Izberi nek primer in naredi zaporedje slajdov, kjer uporabimo relacije
-					za izraz tega
+					<section>
+						<h1>KVIZ!</h1>
+					</section>
+					<section>
+						<div><countdown style="font-size: larger;font-weight: bold; float:right; padding: 0px 10px 0px 10px; border-radius: 10px; border: 2px solid white;" time="30" autostart="no"/></div>
+						<h3>Vsak ljubi vsakega</h3>
+						<pre><code class="alloy" data-trim data-line-numbers>
+							sig Oseba {
+								ljubi : Set Oseba
+							}
+						</code></pre>
+						<table style="border-collapse: collapse; border: none;" class="center">
+							<tr style="border: none;">
+								<td style="border: none;">
+									<pre><code class="alloy" data-trim data-line-numbers style="width: 110%;">
+										Oseba->Oseba in ljubi
+									</code></pre>
+								</td>
+								<td style="border: none;">
+									<pre><code class="alloy" data-trim data-line-numbers style="width: 110%;">
+										ljubi in univ->univ
+									</code></pre>
+								</td>
+							</tr>
+						</table>
+					</section>
+					<section>
+						<div><countdown style="font-size: larger;font-weight: bold; float:right; padding: 0px 10px 0px 10px; border-radius: 10px; border: 2px solid white;" time="30" autostart="no"/></div>
+						<h3>Acikličnost</h3>
+						<pre><code class="alloy" data-trim data-line-numbers>
+							sig Vozlišče {
+								povezan : Set Vozlišče
+							}
+						</code></pre>
+						<table style="border-collapse: collapse; border: none;" class="center">
+							<tr style="border: none;">
+								<td style="border: none;">
+									<pre><code class="alloy" data-trim data-line-numbers style="width: 110%;">
+										povezan not in *povezan
+									</code></pre>
+								</td>
+								<td style="border: none;">
+									<pre><code class="alloy" data-trim data-line-numbers style="width: 110%;">
+										no iden & ^povezan
+									</code></pre>
+								</td>
+							</tr>
+						</table>
+					</section>
 				</section>
 				
 				<section>
-					<h3>Logika</h3>
+					<h3>Predikatni račun</h3>
 				</section>
 
 				<section>
 					<table style="border-collapse: collapse; border: none;">
 						<tr style="border: none;">
-							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-built_in">!</span></td>
+							<td style="border: none; padding: 0.4em 0.8em; text-align:center;"><span class="hljs-built_in">!</span></td>
 							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-literal">not</span></td>
-							<td style="border: none; padding: 0.4em 0.8em;">logična operacija negacije</td>
+							<td style="border: none; padding: 0.4em 0.8em;"><b>negacija</b></td>
 						</tr>
 						<tr style="border: none;">
-							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-built_in">&&</span></td>
+							<td style="border: none; padding: 0.4em 0.8em;text-align:center;"><span class="hljs-built_in">&&</span></td>
 							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-literal">and</span></td>
-							<td style="border: none; padding: 0.4em 0.8em;">logična operacija in</td>
+							<td style="border: none; padding: 0.4em 0.8em;"><b>in</b></td>
 						</tr>
 						<tr style="border: none;">
-							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-built_in">||</span></td>
+							<td style="border: none; padding: 0.4em 0.8em;text-align:center;"><span class="hljs-built_in">||</span></td>
 							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-literal">or</span></td>
-							<td style="border: none; padding: 0.4em 0.8em;">logična operacija ali</td>
+							<td style="border: none; padding: 0.4em 0.8em;"><b>ali</b></td>
 						</tr>
 					</table>
 				</section>
@@ -838,18 +956,17 @@
 				<section>
 					<table style="border-collapse: collapse; border: none;">
 						<tr style="border: none;">
-							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-built_in">&lt;=&gt;</span></td>
+							<td style="border: none; padding: 0.4em 0.8em;text-align:center;"><span class="hljs-built_in">&lt;=&gt;</span></td>
 							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-literal">iff</span></td>
-							<td style="border: none; padding: 0.4em 0.8em;">logična operacija ekvivalence</td>
+							<td style="border: none; padding: 0.4em 0.8em;">ekvivalence</td>
 						</tr>
 						<tr style="border: none;">
-							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-built_in">=&gt;</span></td>
+							<td style="border: none; padding: 0.4em 0.8em;text-align:center;"><span class="hljs-built_in">=&gt;</span></td>
 							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-literal">implies</span></td>
-							<td style="border: none; padding: 0.4em 0.8em;">logična operacija implikacije</td>
+							<td style="border: none; padding: 0.4em 0.8em;">implikacije</td>
 						</tr>
 						<tr style="border: none;">
-							<td colspan="2" style="border: none; padding: 0.4em 0.8em;">b <span class="hljs-literal">implies</span> c <span class="hljs-literal">else</span> d <br>
-							b <span class="hljs-built_in">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&gt;</span> <span style="float:right;">c <span class="hljs-literal">else</span> d</span></td>
+							<td colspan="2" style="border: none; padding: 0.4em 0.8em;">b <span class="hljs-literal">implies</span> c <span class="hljs-literal">else</span> d</td>
 							<td style="border: none; padding: 0.4em 0.8em;vertical-align: middle; ">logični pogojni stavek</td>
 						</tr>
 					</table>
@@ -961,7 +1078,7 @@
 						<ul>
 							<li>ordering</li>
 							<li>relation</li>
-							<li>...</li>
+							<li style="list-style-type: none;">...</li>
 						</ul>
 					</section>
 					<section data-background-iframe="https://alloy.readthedocs.io/en/latest/modules/">
@@ -973,7 +1090,7 @@
 				</section>
 
 				<section>
-					<ul>
+					<ul style="list-style-type: none;">
 						<li>
 							<h5>Operacije</h5>
 							<span class="hljs-built_in">#</span>, <span class="hljs-built_in">plus</span>, <span class="hljs-built_in">minus</span>, <span class="hljs-built_in">mul</span>, <span class="hljs-built_in">div</span>, <span class="hljs-built_in">rem</span><br><br>
@@ -993,10 +1110,12 @@
 						<li>
 							e.<span class="hljs-literal">sum</span>
 						</li>
+					</ul>
+					<aside class="notes">
 						<li>
 							1+3 >= 4 se prevede v (1+3).sum >= 4
 						</li>
-					</ul>
+					</aside>
 				</section>
 				<section>
 					isti primer kot pri relacijah
@@ -1062,9 +1181,9 @@
 				return {
 					name: 'alloy',
 					keywords: {
-						keyword: 'let run for but exactly check open module as sig fact pred fun extends in abstract one some lone set',
+						keyword: 'no let run for but exactly check open module as sig fact pred fun extends in abstract one some lone set',
 						literal: 'true false none',
-						built_in: 'Int seq univ iden + & - = ~ ^ *'
+						built_in: 'Int seq univ iden + \& - = ~ ^ *'
 					},
 					contains: [
 						hljs.COMMENT('//', '$'),
@@ -1083,6 +1202,12 @@
 			// - https://revealjs.com/config/
 			Reveal.initialize({
 				hash: true,
+				
+				dependencies: [
+					{ src: "plugin/countdown/countdown.js" },
+				],
+        		
+				countdown: { defaultTime: 600, autostart: "no" },
 
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath, RevealMermaid ]
