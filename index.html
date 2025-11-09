@@ -34,7 +34,8 @@
 					</section>
 					<section>
 						<ul>
-							<li><a href="https://practicalalloy.github.io/">Practical Alloy</a></li>
+							<li><a href="https://practicalalloy.github.io/">Practical Alloy  (online knjiga)</a></li>
+							<li><a href="https://esb-dev.github.io/mat/alloy-cheatsheet.pdf">Plonk</a></li>
 							<li><a href="#/naloge">Online reševanje nalog</a></li>
 							<li><a href="https://sterling-js.github.io">Alloy online (samo Alloy4)</a></li>
 						</ul>
@@ -152,7 +153,7 @@
 						<div class="mermaid" style="display: flex; justify-content: center; align-items: center; height: 100%;">
 							%%{init: {'theme':'dark'}}%%
 							flowchart TD
-								AA[Stranka] -->|Requirements engineering| A
+								AA[Stranka] -->|REQUIREMENTS ENGINEERING| A
 								A[SPECIFIKACIJA] -->|ELABORATIONS| C[FORMALIZACIJA]
 								C -->|REFINEMENTS| E[KODA]
 								E --> AA
@@ -167,14 +168,6 @@
 						</aside>
 					</section>
 
-					<section>
-						<ul>
-							<li><a href="https://www.youtube.com/watch?v=-4Yp3j_jk8Q">Leslie Lamport: Thinking Above the Code</a></li>
-							<li><a href="https://www.microsoftpressstore.com/store/software-requirements-9780735679665">Software Requirements</a></li>
-						</ul>
-						
-					</section>
-
 					<!-- Verige:
 						- 2 (ideja,koda)
 						- 3 (ideja,formalizacija,koda)
@@ -186,9 +179,7 @@
 
 						Povej kaj je v praksi uporabno.
 					-->
-				</section>
 
-				<section>
 					<section>
 						<h4>Kaj pa legacy code?</h4>
 						<blockquote style="font-size: xx-large;">
@@ -208,19 +199,23 @@
 					<section>
 						<video controls src="media/jayclip1.mp4"></video>
 					</section>
+
+					<section>
+						<h4>Povzetek</h4>
+						<ul>
+							<li>razmisli preden pišeš program</li>
+							<li>misli medtem ko bereš program</li>
+							<li>misli s pisanjem</li>
+							<li>veliko členov manjka, vsi imajo svojo teorijo</li>
+						</ul>
+				</section>
 				</section>
 
 				<section>
-					<h4>Povzetek</h4>
-					<ul>
-						<li>razmisli preden pišeš program</li>
-						<li>misli medtem ko bereš program</li>
-						<li>misli s pisanjem</li>
-						<li>veliko členov manjka, vsi imajo svojo teorijo</li>
-					</ul>
-				</section>
+					<section>
+						<h3>Alloy Analyzer</h3>
+					</section>
 
-				<section>
 					<section>
 						<h4>Kaj je Alloy Analyzer?</h4>
 						<ul>
@@ -238,79 +233,73 @@
 					</section>
 					<section>
 						<h4>Testiranje</h4>
-						<img src="media/brd.png" alt="" width="50%">
+						<img src="media/brdn.png" alt="" width="50%">
 					</section>
 					<section>
 						<h4>Bounded model checking</h4>
-						<img src="media/bbd.png" alt="" width="50%">
+						<img src="media/bbdn.png" alt="" width="50%">
 					</section>
-				</section>
-
-				<section>
-					<h4>Kaj opiše Alloy model?</h4>
-					<ul style="padding-left: 50px;">
-						<li>začetno stanje</li>
-						<li>prehod med stanji</li>
-						<li>omejitve celotnega izvajanja</li>
-					</ul>
-					<aside class="notes">
-						<ul>
-							<li>kaj je stanje</li>
-							<li>prehodi med stanji so akcije</li>
-							<li>omejitve celotnega izvajanja izrazimo s časovno logiko</li>
-							<li>danes se bomo omejili le na prvi dve točki</li>
-						</ul>
-					</aside>
-				</section>
-
-				<section>
-					<h4>Kako modeliramo v Alloyu?</h4>
-					<ul style="padding-left: 100px;">
-						<li>opišemo objekte</li>
-						<li>števnosti relacij med njimi</li>
-						<li>z logiko postavimo dodatne omejitve</li>
-					</ul>
-
-					<aside class="notes">
-						<ul>
-							<li>ER diagram</li>
-							<li>primer dodatne omejitve</li>
-						</ul>
-					</aside>
-				</section>
-
-				<section>
-					<h4>Še ena perspektiva modeliranja</h4>
-
-					<div class="mermaid" style="display: flex; justify-content: center; align-items: center; height: 100%;">
-						%%{init: {'theme':'dark'}}%%
-						flowchart TD
-							A[IDEJA] --> B[FORMALIZACIJA ZAHTEV KODE]
-							B --> C[FORMALIZACIJA DELOVANJA KODE]
-							C --> D[KODA]
-					</div>
-
-					<aside class="notes">
-						<ul>
-							<li>vse modeliranje v alloyu je pisanje logike</li>
-							<li>če napišeš kaj hočeš, kaj potem preverjaš??</li>
-						</ul>
-					</aside>
 				</section>
 				
 				<section>
-					<h4>Modeliranje stanj</h4>
-
-					<p>imamo stvari in odnose med njimi</p>
-
-					<aside class="notes">
-						<ul>
-							<li>prirejanje spremenljivk, pomnilnik</li>
-							<li>zakaj so relacije dovolj</li>
-							<li>podatkovne baze, tabele</li>
-							<li>zakaj: bolj splošno, abstraktno, drugačen način</li>
+					<section>
+						<h3>Modeliranje v Alloyu</h3>
+					</section>
+					<section>
+						<h4>Kaj opiše Alloy model?</h4>
+						<ul style="padding-left: 50px;">
+							<li>začetno stanje</li>
+							<li>prehod med stanji</li>
+							<li>omejitve celotnega izvajanja</li>
 						</ul>
-					</aside>
+						<aside class="notes">
+							<ul>
+								<li>kaj je stanje</li>
+								<li>prehodi med stanji so akcije</li>
+								<li>omejitve celotnega izvajanja izrazimo s časovno logiko</li>
+								<li>danes se bomo omejili le na prvi dve točki</li>
+							</ul>
+						</aside>
+					</section>
+
+					<section>
+						<h4>Kako modeliramo v Alloyu?</h4>
+						<ul style="padding-left: 100px;">
+							<li>opišemo objekte</li>
+							<li>števnosti relacij med njimi</li>
+							<li>z logiko postavimo dodatne omejitve</li>
+						</ul>
+
+						<aside class="notes">
+							<ul>
+								<li>ER diagram</li>
+								<li>primer dodatne omejitve</li>
+								<li>prirejanje spremenljivk, pomnilnik</li>
+								<li>zakaj so relacije dovolj</li>
+								<li>podatkovne baze, tabele</li>
+								<li>zakaj: bolj splošno, abstraktno, drugačen način</li>
+							</ul>
+						</aside>
+					</section>
+
+					<section>
+						<h4>Še ena perspektiva modeliranja</h4>
+
+						<div class="mermaid" style="display: flex; justify-content: center; align-items: center; height: 100%;">
+							%%{init: {'theme':'dark'}}%%
+							flowchart TD
+								A[IDEJA] --> B[FORMALIZACIJA ZAHTEV KODE]
+								B --> C[FORMALIZACIJA DELOVANJA KODE]
+								C --> D[KODA]
+						</div>
+
+						<aside class="notes">
+							<ul>
+								<li>vse modeliranje v alloyu je pisanje logike</li>
+								<li>če napišeš kaj hočeš, kaj potem preverjaš??</li>
+							</ul>
+						</aside>
+					</section>
 				</section>
 				
 				<section>
@@ -425,10 +414,10 @@
 				
 				<section>
 					<section>
-						<h1>KVIZ!</h1>
+						<h1>KVIZ</h1>
 					</section>
 					<section>
-						<div><countdown style="font-size: larger;font-weight: bold; float:right; padding: 0px 10px 0px 10px; border-radius: 10px; border: 2px solid white;" time="30" autostart="no"/></div>
+						<div><countdown style="font-size: larger;font-weight: bold; float:right; padding: 0px 10px 0px 10px; border-radius: 10px; border: 2px solid white;" time="120" autostart="no"/></div>
 						<img src="media/kviz1.svg" alt="">
 						<table style="border-collapse: collapse; border: none;" class="center">
 							<tr style="border: none;">
@@ -452,9 +441,9 @@
 						</table>
 					</section>
 					<section>
-						<div><countdown style="font-size: larger;font-weight: bold; float:right; padding: 0px 10px 0px 10px; border-radius: 10px; border: 2px solid white;" time="30" autostart="no"/></div>
+						<div><countdown style="font-size: larger;font-weight: bold; float:right; padding: 0px 10px 0px 10px; border-radius: 10px; border: 2px solid white;" time="120" autostart="no"/></div>
 						<img src="media/kviz2.svg" alt="">
-						<table style="border-collapse: collapse; border: none;" class="center">
+						<table style="border-collapse: collapse; border: none;margin-left: -90px;">
 							<tr style="border: none;">
 								<td style="border: none;">
 									<pre><code class="alloy" data-trim data-line-numbers style="width: 110%;">
@@ -835,7 +824,7 @@
 				<section>
 					<section>
 						<h3>Zožitev relacij</h4>
-						<h2><span class="hljs-built_in">&lt;:</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-built_in">:&gt;</span></h2>
+						<h2><span class="hljs-built_in">&lt;:</span>&nbsp;&nbsp;&nbsp;<span style="font-size: 60px;">in</span>	&nbsp;&nbsp;&nbsp;<span class="hljs-built_in">:&gt;</span></h2>
 						
 						<aside class="notes">
 							<ul>
@@ -851,7 +840,7 @@
 				</section>
 				<section>
 					<section>
-						<h3>Povozi</h3>
+						<h3>Override</h3>
 						<h2><span class="hljs-built_in">++</span></h2>
 						<aside class="notes">
 							<ul>
@@ -879,17 +868,17 @@
 
 				<section>
 					<section>
-						<h1>KVIZ!</h1>
+						<h1>KVIZ</h1>
 					</section>
 					<section>
 						<div><countdown style="font-size: larger;font-weight: bold; float:right; padding: 0px 10px 0px 10px; border-radius: 10px; border: 2px solid white;" time="30" autostart="no"/></div>
 						<h3>Vsak ljubi vsakega</h3>
 						<pre><code class="alloy" data-trim data-line-numbers>
 							sig Oseba {
-								ljubi : Set Oseba
+								ljubi : set Oseba
 							}
 						</code></pre>
-						<table style="border-collapse: collapse; border: none;" class="center">
+						<table style="border-collapse: collapse; border: none;margin-left: -50px;">
 							<tr style="border: none;">
 								<td style="border: none;">
 									<pre><code class="alloy" data-trim data-line-numbers style="width: 110%;">
@@ -905,14 +894,14 @@
 						</table>
 					</section>
 					<section>
-						<div><countdown style="font-size: larger;font-weight: bold; float:right; padding: 0px 10px 0px 10px; border-radius: 10px; border: 2px solid white;" time="30" autostart="no"/></div>
+						<div><countdown style="font-size: larger;font-weight: bold; float:right; padding: 0px 10px 0px 10px; border-radius: 10px; border: 2px solid white;" time="60" autostart="no"/></div>
 						<h3>Acikličnost</h3>
 						<pre><code class="alloy" data-trim data-line-numbers>
 							sig Vozlišče {
 								povezan : Set Vozlišče
 							}
 						</code></pre>
-						<table style="border-collapse: collapse; border: none;" class="center">
+						<table style="border-collapse: collapse; border: none;margin-left: -60px;">
 							<tr style="border: none;">
 								<td style="border: none;">
 									<pre><code class="alloy" data-trim data-line-numbers style="width: 110%;">
@@ -958,16 +947,16 @@
 						<tr style="border: none;">
 							<td style="border: none; padding: 0.4em 0.8em;text-align:center;"><span class="hljs-built_in">&lt;=&gt;</span></td>
 							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-literal">iff</span></td>
-							<td style="border: none; padding: 0.4em 0.8em;">ekvivalence</td>
+							<td style="border: none; padding: 0.4em 0.8em;font-weight: bold;">ekvivalenca</td>
 						</tr>
 						<tr style="border: none;">
 							<td style="border: none; padding: 0.4em 0.8em;text-align:center;"><span class="hljs-built_in">=&gt;</span></td>
 							<td style="border: none; padding: 0.4em 0.8em;"><span class="hljs-literal">implies</span></td>
-							<td style="border: none; padding: 0.4em 0.8em;">implikacije</td>
+							<td style="border: none; padding: 0.4em 0.8em;font-weight: bold;">implikacija</td>
 						</tr>
 						<tr style="border: none;">
 							<td colspan="2" style="border: none; padding: 0.4em 0.8em;">b <span class="hljs-literal">implies</span> c <span class="hljs-literal">else</span> d</td>
-							<td style="border: none; padding: 0.4em 0.8em;vertical-align: middle; ">logični pogojni stavek</td>
+							<td style="border: none; padding: 0.4em 0.8em;vertical-align: middle;font-weight: bold;">logični pogojni stavek</td>
 						</tr>
 					</table>
 				</section>
@@ -1004,7 +993,7 @@
 						</tr>
 						<tr style="border: none;">
 							<td style="border: none; padding: 0.4em 0.8em;white-space: nowrap;text-align: right;vertical-align: middle;"><span class="hljs-literal">some</span> x: <span class="hljs-literal">lone</span> e | F</td>
-							<td style="border: none; padding: 0.4em 0.8em;">F velja za nek x v e ali pa nobenega</td>
+							<td style="border: none; padding: 0.4em 0.8em;">F velja za nek x v e ali pa x={}</td>
 						</tr>
 						<tr style="border: none;">
 							<td style="border: none; padding: 0.4em 0.8em;text-align: right;"><span class="hljs-literal">lone</span> x: <span class="hljs-literal">set</span> e | F</td>
@@ -1117,9 +1106,6 @@
 						</li>
 					</aside>
 				</section>
-				<section>
-					isti primer kot pri relacijah
-				</section>
 				<!--
 					Tabela kvantifikatorjev in morda branj
 					omeni disj
@@ -1161,11 +1147,19 @@
 					</section>
 					<section>
 						<ul>
-							<li><a href="https://www.youtube.com/watch?v=FvNRlE4E9QQ">"Finding bugs without running or even looking at code" by Jay Parlar</a></li>
-							<li><a href="https://mitpress.mit.edu/9780262528900/software-abstractions/">Software Abstractions</a></li>
+							<li><a href="https://alloytools.org/spec.html">Alloy Reference Manual</a></li>
+							<li><a href="https://alloytools.org/tutorials/day-course/">Še druga predstavitev</a></li>
+							<li><a href="https://groups.csail.mit.edu/sdg/pubs/2007/tacas07-torlak-jackson.pdf">Kodkod: A Relational Model Finder (pretvorba Alloy v SAT)</a></li>
+							<li><a href="https://mitpress.mit.edu/9780262528900/software-abstractions/">Software Abstractions (knjiga o Alloy4)</a></li>
 						</ul>
-						denotacijska iz knjige
-						denotacijska za SAT
+					</section>
+					<section>
+						<ul>
+							<li><a href="https://www.youtube.com/watch?v=FvNRlE4E9QQ">"Finding bugs without running or even looking at code" by Jay Parlar</a></li>
+							<li><a href="https://www.youtube.com/watch?v=-4Yp3j_jk8Q">Leslie Lamport: Thinking Above the Code</a></li>
+							<li><a href="https://www.microsoftpressstore.com/store/software-requirements-9780735679665">Software Requirements</a></li>
+							<li><a href="http://sunnyday.mit.edu/16.355/wirth-refinement.html">Program Development by Stepwise Refinement (Niklaus Wirth)</a></li>
+							<li><a href="https://www.cs.cornell.edu/info/people/tt/Principled_Programming.pdf">Principled Programming (uvod v programiranje s perspektive zgornje metode)</a></li>
 					</section>
 				</section>
 			</div>
@@ -1181,9 +1175,9 @@
 				return {
 					name: 'alloy',
 					keywords: {
-						keyword: 'no let run for but exactly check open module as sig fact pred fun extends in abstract one some lone set',
-						literal: 'true false none',
-						built_in: 'Int seq univ iden + \& - = ~ ^ *'
+						keyword: 'not no let run for but exactly check open module as sig fact pred fun extends in abstract one some lone set',
+						literal: ['true', 'false', 'none', '&', '^', '*'],
+						built_in: 'Int seq univ iden'
 					},
 					contains: [
 						hljs.COMMENT('//', '$'),

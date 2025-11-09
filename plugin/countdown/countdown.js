@@ -87,26 +87,33 @@ var RevealCountDown =
     }
 
     function updateTimer(timeLeft) {
+      counterRef = ev.currentSlide.getElementsByTagName("countdown")[0];
       if (counterRef === null) return;
-      secondsLeft = timeLeft;
-      minutesLeft = Math.floor(secondsLeft / 60);
-      secondsLeft = secondsLeft % 60;
-      hoursLeft = Math.floor(minutesLeft / 60);
-      minutesLeft = minutesLeft % 60;
+      if (counterRef === undefined) return;
+      time = String(counterRef.getAttribute("time")).length;
+      
+      counterRef.innerHTML = String(timeLeft).padStart(time,"0") + " s";
+      return;
 
-      if (hoursLeft > 0) {
-        counterRef.innerHTML =
-          hoursLeft + " h " + minutesLeft + " m " + secondsLeft + " s";
-        return;
-      }
-      if (minutesLeft > 0) {
-        counterRef.innerHTML = minutesLeft + " m " + secondsLeft + " s";
-        return;
-      }
-      if (minutesLeft <= 0) {
-        counterRef.innerHTML = String(secondsLeft).padStart(2,"0") + " s";
-        return;
-      }
+      // secondsLeft = timeLeft;
+      // minutesLeft = Math.floor(secondsLeft / 60);
+      // secondsLeft = secondsLeft % 60;
+      // hoursLeft = Math.floor(minutesLeft / 60);
+      // minutesLeft = minutesLeft % 60;
+
+      // if (hoursLeft > 0) {
+      //   counterRef.innerHTML =
+      //     hoursLeft + " h " + minutesLeft + " m " + secondsLeft + " s";
+      //   return;
+      // }
+      // if (minutesLeft > 0) {
+      //   counterRef.innerHTML = minutesLeft + " m " + secondsLeft + " s";
+      //   return;
+      // }
+      // if (minutesLeft <= 0) {
+      //   counterRef.innerHTML = String(secondsLeft).padStart(2," ") + " s";
+      //   return;
+      // }
     }
 
     function increaseTime() {
